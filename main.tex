@@ -1,0 +1,133 @@
+%preamble - package inclusion and set up
+\input{setup/preamblePaper.tex}
+
+%macros - please read this file
+\input{setup/macros.tex}
+
+\begin{document}       % TIP: If you are using TeXstudio you can open
+%\tableofcontents      %      the file by Ctrl+LeftClick on setup/macros.tex
+%\pagebreak             %      If the file doesn't exist, you will be asked
+					   %      weather or not you want to create it.
+%\begin{center}
+%	\vspace{5cm}
+%	\Huge{Worksheets}
+%\end{center}
+%\clearpage
+
+%||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+%|||||||                 Example Inputs                  ||||||||
+%||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+%|||||||                                                 ||||||||
+%			 \input{chapters/aFigureSample.tex}			 %|||||||
+%			 \input{chapters/bTableSample.tex} 		     %|||||||
+%			 \input{chapters/cEquationSample.tex}		 %|||||||
+%			 \input{chapters/dTikzSample.tex}            %|||||||
+%			 \input{chapters/eCodeSample.tex}            %|||||||
+%|||||||                                                 ||||||||
+%||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+%||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+%%% Prereport %%%
+		\setlength\cftaftertoctitleskip{2pt}
+		\setlength\cftafterloftitleskip{6pt}
+		\setlength\cftafterlottitleskip{6pt}
+%\selectlanguage{danish}
+%\title{Testing the performance of linear regressors using inertial information combined with sEMG to minimize the limb position effect in proportional and simultaneous control of lower arm prosthetics.}
+
+%%% Frontmatter Settings %%%
+		\pagestyle{empty} %disable headers and footers
+		\pagenumbering{roman} %use roman page numbering in the frontmatter I II...
+%		\fancyfoot[RE,LO]{17gr7404} %page number on all pages
+%		\fancyfoot[LE,RO]{\thepage}
+%		\fancyhead[LE,LO,RE,RO]{}
+
+%%% Introductory Formalities %%%
+%\includepdf[pages={1}]{formalities/frontpage.pdf}
+%			\input{formalities/frontpage.tex}			% <--- the frontpage
+%			\pagestyle{fancy}
+%%\include{formalities/kolofon}
+%			\input{formalities/titleSheet.tex} 			 % <--- the titlesheet - contains the synopsis!!
+%%%% Preface %%%
+%			\cleardoublepage
+%			\input{contents/bIntro/abstract.tex}			 % <--- this is the abstract!!
+%%\clearpage
+%			\input{formalities/forord.tex}				% <--- the preface
+%
+%			\pdfbookmark[0]{Table of Contents}{label: tableOfCentents}
+%			\tableofcontents
+%%			\cleardoublepage
+
+
+%%% Mainmatter Settings %%%
+\pagenumbering{arabic} %use arabic page numbering in the mainmatter
+\fancyhf{}
+\fancyfoot[C]{\thepage} %\text{ of} \pageref{LastPage}}
+%\fancyfoot[RE,LO]{17gr7404}
+%\fancyhead[RE,LO]{}
+%\fancyhead[RE,LO]{\color{aaublue}\small\nouppercase\leftmark} %even page - chapter title
+\pagestyle{fancy}
+
+
+%---------------------------INPUTS-------------------------------
+
+\input{contents/MAINroot.tex}
+
+
+%\chapter{Introduction}
+%% INTRO
+%\input{contents/bIntro/introduction.tex}
+
+%\chapter{Background}
+%
+%% stuffs
+%\input{contents/cBackground/anatomy.tex}
+%\input{contents/cBackground/physiology.tex}
+%\input{contents/cBackground/myoband.tex}
+%%\input{contents/cBackground/JACO.tex}
+%\input{contents/cBackground/preprocessingOfEMG.tex}
+%\input{contents/cBackground/featureExtraction.tex}
+%\input{contents/cBackground/regressionMethods.tex}
+%\input{contents/cBackground/xConclusionBackground.tex}
+%
+%\chapter{Methods}
+%
+%\input{contents/yzxAppendices/Protocol.tex}
+%\input{contents/xMethods/dataAcquisition.tex}
+%\input{contents/xMethods/featureExtraction.tex}
+%\input{contents/xMethods/dataValidation.tex}
+%\input{contents/xMethods/Regression.tex}
+%\input{contents/xMethods/regressorAccuracy.tex}
+%%
+%%
+%%%\input{contents/xMethods/testGUI.tex}
+%\input{contents/xMethods/FittsLaw.tex}
+%%
+%%
+%\chapter{Results}
+%\input{contents/xzResults/PCA_results.tex}
+%\input{contents/xzResults/RMSE_results_training.tex}
+%\input{contents/xzResults/performace_test_results.tex}
+%
+%\chapter{Discussion}
+%\input{contents/yzDiscussion/Discussion.tex}
+%
+%\chapter{Conclusion}
+%\input{contents/yzeConclusion/conclusion.tex}
+
+
+	
+\begin{multicols}{2}
+	
+\urlstyle{same}
+\printbibliography
+%\cleardoublepage
+\end{multicols}
+
+%% BILAG
+%\begin{appendices}
+%	
+%\end{appendices}
+
+
+\end{document}

@@ -1,0 +1,77 @@
+%Macro for 'where'-enviroment was improved by Andrea and Niels :-)
+
+%-----------UNITS-------------------------------------------
+\newcommand{\unit}[1]{&& \left[\si{#1}\right]}
+%
+%\newcommand{\unit}[1]{[\si{#1}]}            %<<| Use these if you want equations to be
+%\newcommand{\eq}[2]{&&\si{#1} &= \si{#2}&&} %<<| centered.. .. will appear scrambled
+%                                            %  | from one equation to the next though..
+%                                            %  | and does not work with long equations.. :/
+%
+%-----------------------------------------------------------
+
+%-----------WHERE ENVIRONMENT-------------------------------
+\newenvironment{where}{\leavevmode{\parindent=1em\indent} Where:\\}{}
+\newcommand{\va}[3]
+{
+  \begin{tabular}{p{20pt} p{40pt} p{290pt} l}
+    & { $#1$ } & { #2 } & \ifthenelse{\isempty{ #3 }}  {}  {[{\si{#3}}]} \\
+  \end{tabular}\\
+}
+%-----------------------------------------------------------
+
+%-----------TikZ SETTINGS-----------------------------------
+\tikzset{
+  block/.style    = {draw, thick, rectangle,
+                     minimum height = 2.1em,
+                     minimum width = 1.7em},
+  sum/.style      = {draw, circle, inner sep=3pt} %<--Adder
+}
+%-----------------------------------------------------------
+
+
+%-----------Fanzy reference SETTINGS------------------------
+%Figure references:
+\newcommand{\figref}[1]{figure \ref{#1}}
+
+%Figure references after full stop/period:
+\newcommand{\Figref}[1]{Figure \ref{#1}}
+
+%Table references:
+\newcommand{\tabref}[1]{table \ref{#1}}
+
+%Table references after full stop/period:
+\newcommand{\Tabref}[1]{Table \ref{#1}}
+
+%Section references:
+\newcommand{\secref}[1]{section \ref{#1} on page \pageref{#1}}
+
+%Section references:
+\newcommand{\Secref}[1]{Section \ref{#1} on page \pageref{#1}}
+
+%Appendix references:
+\newcommand{\appref}[1]{appendix \ref{#1} on page \pageref{#1}}
+
+%Appendix references:
+\newcommand{\Appref}[1]{Appendix \ref{#1} on page \pageref{#1}}
+
+%chapter references: 
+\newcommand{\chapref}[1]{chapter \ref{#1} on page \pageref{#1}}
+
+%chapter references: 
+\newcommand{\Chapref}[1]{Chapter \ref{#1} on page \pageref{#1}}
+
+%Units:
+%\newcommand{\unit}[1]{&& \left[\si{#1}\right]}
+
+%Text:
+\newcommand{\tx}[1]{\text{#1}}
+
+%Equation references:
+%1 equation:
+\renewcommand{\eqref}[1]{equation (\ref{#1})}
+
+%-----------------------------------------------------------
+
+
+
