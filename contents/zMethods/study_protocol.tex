@@ -1,0 +1,73 @@
+\section{Study protocol}
+
+\textbf{Title of project}
+
+Using estimation uncertainty to improve prosthesis control 
+
+\textbf{Detail on investigators}
+
+All investigators are currently 8th. semester students, studying at Aalborg University.  
+
+\textbf{Purpose and background}
+
+Commercially available prosthesis have yet to adopt the use of pattern recognition methods in their control scheme. Mainly, this is due to the disadvantages exploited in “ref til introduction om problemer måske?”. A control scheme that reduce these disadvantages are therefore sought through the combination of regression and classification based methods. 
+The overall aim is to develop a novel control scheme for myoelectric prosthetic devices. Hereby it is sought to clarify if a combined regression and classification control scheme yields higher subject performance in a Fitts’ Law test compared to a method only using regression.         
+
+\textbf{Research question/hypothesis}
+
+The use of a Fitts’s Law test will show a significant improvement in subject prosthesis control with a combined regression and classification control scheme compared to a method using only regression. 
+
+\textbf{Ethical considerations}  
+
+The investigators do not foresee any obstacles of ethical nature during the proceedings of this experiment. No test subjects will be exposed to any physical interventions besides being asked to wear the Myo armband. No part of this experiment should put the subject in danger. 
+
+\textbf{Session time} 
+
+Estimated time for a subject recording session is believed to 1-2 hours. 
+
+\textbf{Inclusion criteria}
+
+The subject needs to be:
+\begin{itemize}
+	\item able bodied.
+	\item between 18 and 35 years of age.
+	\item able to understand and speak Danish and/or English.
+	\item assessed by the investigators to understand and perform the instructions given during the experiment. 
+\end{itemize}
+
+
+\textbf{Exclusion criteria}
+
+The subject must not have:
+\begin{itemize}
+	\item diseases that might influence subject performance   
+\end{itemize}
+
+
+\textbf{Experiment procedure}
+
+The experiment is divided into two sessions: 1) training data acquisition and 2) performance test. During the training data acquisition EMG data will be recorded from the subject with an EMG-electrode armband(Myoband from Thalmic Labs) when performing four different wrist movements(flexion, extension, radial deviation and ulnar deviation) as illustrated in \figref{FIGURE}. The data is subsequently used to fit the regression and classification models used in the myoelectric control scheme for the following performance test. During the performance test the subject will perform a target-reaching task in a cartesian coordinate system of reaching a number of targets using wrist movements, where each axis represent a one of four wrist movements, as seen in figure \figref{FIGURE2}. The aim for the subject is to reach as many targets as quickly as possible. The subject will perform the target-reaching task twice, where two different control schemes will be tested. The study is single-blinded and the subject will therefore not be informed which control scheme is tested first.
+
+Chronology of training data acquisition:
+\begin{enumerate}
+	\item Apply Myoband on dominant forearm at the thickest part.
+	\item Synchronize Myoband by performing wrist extension until three distinct vibrations are felt.
+	\item Perform 15 seconds of maximum voluntary contraction(MVC) of instructed movement. Following the MVC the subject will be given a 30 resting period to avoid fatigue.
+	\item Perform 15 seconds contractions of respectively 20\%, 40\% and 60\% of MVC. During these contractions the subject will control a green marker representing the EMG signal and try to follow a trapezoidal trajectory a precise as possible. The trapezoidal trajectory consists of two five second transition phases and one five second plateau phase as illustrated in figure \figref{FIGURE3}. Between each trial the subject will be given a 15 seconds resting period to avoid muscle fatigue.
+	\item Repeat step 3-4 until training data from all four wrist movements has been recorded.
+\end{enumerate}
+
+Chronology of performance test:
+\begin{enumerate}
+	\item Initially the subject will be given 5 minutes to get familiar with the target-reaching task. The subject will control an arrow originated from origo representing the features extracted from the EMG data, where the length represent the intensity and direction depicts the movement performed.
+	\item The subject will perform the target-reaching task. To reach a target the subject must place the head of the arrow within the target for 0.5 seconds. If this is achieved the target will disappear. The target will similarly disappear if the subject fails to achieve this within 15 seconds. When an outer target disappears a target centred in origo appears and the subject must reach this before a new outer target appear. This procedure is continued until no more targets are shown. After finishing the performance test the subject will be given a 2 minutes resting period.
+	\item Repeat step 1-2 for the second control scheme. 
+\end{enumerate}
+ 
+
+
+
+
+
+
+
