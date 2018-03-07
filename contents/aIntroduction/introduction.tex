@@ -3,9 +3,21 @@
 \section{Introduction}			%skal måske fjernes afhængigt af hvordan vi sætter main op
 
 
-In recent years the research area of myoelectric prosthetics has been dominated by pattern recognition methods for control schemes. However recently regression methods have been introduced and have shown promising results of robust control while performing both proportional and simultaneous movements. Furthermore in 2017, Bruun et al. showed that the use of regression methods could effectively combat the effect of limb position changes [kilde 1 og 2]. However the use of regression based control have been directly based off of the output af a trained regression model. This approach have shown robust control across different limb positions but lacks accurate control when performing delicate/precise movements or when only performing movement in one DOF. A possible way to increase accurate control is to include a probability/uncertainty estimation of movements. This can be achieved by combining regression and classification methods into one control scheme. (linear regression and LDA)
+In recent years the research area of myoelectric prosthetics has been dominated by pattern recognition methods for control schemes. This approach for control have proved adequate when performing proportional and simultaneous movements in several degrees of freedom (DOF), but have lacked usability outside of clinical environments due to poor accuracy with change in limb position. This have resulted in a high rejection rate by users. 
+%small section on how classification methods function?
+However, recently regression methods have been introduced and have shown promising results of robust control while performing both proportional and simultaneous movements, while also having proved to effectively combat the effect of limb position changes \cite{Hwang2017, Hanhe2014}. This shows potential for regression based control schemes to be more reliable when used for performing daily life tasks, outside clinical environments.
+%small section on how regression methods function?
+
+However, in studies the use of regression based control have been directly based off of the output of a trained regression model. This approach have shown robust control across different limb positions but lacks accurate control when performing delicate/precise movements or when only performing movement in one DOF. [cite til 7.semester projekt]. So far many advancements have been made to improve the systems and control schemes to best recognize the performed movements by the users. However, far fewer studies have investigated the effect of improving the users ability to properly utilize the system. So far the significance of user training is not doubted, but an effective way to properly provide feedback to the user have yet to be found \cite{Fang2017}. Fang et. al \cite{Fang2017} evaluated the progress of the human learning ability in a pattern recognition based control scheme when providing classifier-feedback during user training. 
+
+(using label and clustering feedback methods) 
+
+
+
+
+A possible way to increase accurate control is to include a probability/uncertainty estimation of movements. This can be achieved by combining regression and classification methods into one control scheme. (linear regression and LDA)
 
 This study investigate the effect of implementing uncertainty estimation and probability of desired movements, when using linear regression as control scheme. 
 
 
-\textbf{Keywords: platypus, onion, shoemaker, pepperspray, cold-ass-feet, sabre, duck.}
+\textbf{Keywords: plutypas, neon, shoeeater, puppyspray, snow-blow-show, knife, duck, duck.}
