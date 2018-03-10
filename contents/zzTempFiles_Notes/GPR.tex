@@ -1,0 +1,32 @@
+\section{Notes on Guassian Process Regression (GPR)}
+
+
+
+\subsection{Copy from mathworks}
+
+Gaussian process regression (GPR) models are nonparametric kernel-based probabilistic models. You can train a GPR model using the fitrgp function.
+
+A linear regression model is of the form y=xTβ+ε,
+where ε∼N(0,σ2). The error variance σ2 and the coefficients β are estimated from the data.
+
+Because a GPR model is probabilistic, it is possible to compute the prediction intervals using the trained model (see predict and resubPredict). Consider some data observed from the function g(x) = x*sin(x), and assume that they are noise free. 
+
+https://se.mathworks.com/help/stats/gaussian-process-regression-models.html
+
+
+\subsection{Teori}
+
+A Gaussian Process (GP) is a collection of random variables, which have joint Gaussian distribution. GP's define a distribution over functions which can be completely described by its mean function m(x) and covariance function k(x,x'), where the mean is expressed as an vector and the covariance as a matrix. This is written as
+\begin{flalign}
+	 $f ~ gp(m,k)$  
+
+\end{flalign} 
+
+Gaussian processes can be used in regression models called Gaussian Process Regression models (GPR). A GPR model is a nonparametric kernel-based probabilistic model. 
+
+
+https://link-springer-com.zorac.aub.aau.dk/content/pdf/10.1007%2Fb100712.pdf
+
+
+
+
