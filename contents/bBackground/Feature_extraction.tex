@@ -1,36 +1,6 @@
 
+\subsection{Feature extraction}
 
-\section{Feature extraction} 
-
-To obtain the best possible classification, four different features have been extracted using their respective extraction methods. The features are Mean Absolute Value, Zero crossings, Slope Sign Changes and Waveform length. These will from now on be referred to as MAV, ZC, SSC and WL respectively. 
-
-kort om hver feature 
-
-
-\textbf{MAV} is an estimate of the mean absolute value of the signal, $\bar{X_i}$. i is the chosen segment where N is the number of samples in i. MAV is derived from, 
-
-
-\begin{flalign}
-	\bar{X_i} = 1/N \sum_{k=1}^{X} |x_k| ~ ~ for ~ i = 1 ... I 
-\end{flalign}
-
-where $x_k$ is the $k^{th}$ sample in $i$ and $I$ being the total number segments. 
-
-
-\textbf{ZC} Finder lige ud af om de skal bruges 
-
-
-\textbf{SSC} Samme her 
-
-\textbf{WL} provides information on the waveform complexity in each segment by calculating the cumulative length of the waveform over time. The length is defined as,  
-
-\begin{flalign}
-	l_0=\sum_{k-1}^{N}|\triangle x_k| 
-\end{flalign}
-
-where $\triangle x_k = x_k - x_{k-1}$, which is the difference in consecutive sample voltage values). 
-
-representation af hver feature 
-
-
-\cite{Hudgins1993}
+Before using the recorded EMG-signal for any myoelectric prosthesis control, features are often extracted from the original signal and used for control instead. Thereby reducing the amount of redundant information limiting it to its most useful properties, resulting in faster computational speed. 
+There are numerous feature components from an EMG signal which can be extracted either from the time-domain, frequency-domain, or as a time-frequency domain. Most used are features from the time- and frequency-domain. Extracting features to the frequency-domain requires some sort of frequency analysis, showing the spectral properties of the recorded signal, which takes up longer processing time than simply using the direct time--domain. 
+Time-domain features are often chosen base on their quick and easy implementation. They do not require any transformation before extraction and are calculated based on the raw EMG-signal.\cite{Phiny2012} 
