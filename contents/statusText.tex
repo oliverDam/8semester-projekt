@@ -1,6 +1,6 @@
 %statusseminar text
 
-\chapter{Using estimation uncertainty to improve prosthesis control}
+\chapter*{Using estimation uncertainty to improve prosthesis control}
 
 \textbf{Group 8408. Simon Bruun, Oliver Damsgaard, Martin Garenfeld, Christian Mortensen}
 
@@ -21,42 +21,28 @@ This study will seek to develop a new method of feedback during user training, b
 
 \section{Methods}
 
-This study will utilize EMG recordings to acquire muscle signals to evaluate and compute uncertainty estimations for classifying four different hand gestures. The goal is to develop a system that use the classification uncertainties to improve of the user training.
+%This study will utilize classification and probability estimation based on EMG recordings to evaluate and compute uncertainty estimations for classifying four different hand gestures. The goal is to develop a system that use the classification uncertainties to improve user training.
 
-The study will consist of steps of data acquisition, user training and an online test. The user will undergo user training followed by a targets reaching Fitts' Law test. The study will have a test and control group, where the control group will be trained without visual feedback during user training. Post hoc statistic comparisons will be made between online tests and maybe some other things we have not entirely decided upon yet.
+%The study will consist of steps of data acquisition, user training and an online test. The user will undergo user training followed by a targets reaching Fitts' Law test. The study will have a test and control group, where the control group will be trained without visual feedback during user training. Post hoc statistic comparisons will be made between online tests and maybe some other things we have not entirely decided upon yet.
 
-\textbf{Data acquisition} will be done with a Myo armband (MYB) from Thalmic Labs. The MYB posses eight surface EMG electrodes, which has a sampling rate of 200Hz. 
-\textbf{Linear discriminant analysis} (LDA) is a supervised classification method used to separate classes of data by linear decision boundaries. Classification methods attempt to classify similar patterns in EMG signals, between previously acquired data and new data \cite{Mendez2017}. In LDA each decision boundary is a hyperplane $H$ from which the minimum distance from the classes it separates is maximized, and the distance from the means of the classes are maximized. A decision boundary is defined as a linear combination of the feature values.
-Evaluating the certainty that a feature value belongs to a given class can be done by computing the posterior probability of each class. The posterior probability is a value between 0 and 1, and is calculated as follows:
+\textbf{Data acquisition} will be done with a Myo armband (MYB) from Thalmic Labs. The MYB contains eight surface EMG electrodes, which has a sampling rate of 200 Hz.
+For \textbf{feature extraction} four features will be extracted from the acquired data; slope-sign changes (SSC), waveform length (WL), zero crossings (ZC) and mean absolute value (MAV). The features will be extracted from a window of 200 ms (40 samples) with a 50\% overlap.
+For classification \textbf{LDA} will be used. LDA is a supervised classification method used to separate classes of data by linear decision boundaries. Classification methods attempt to classify similar patterns in EMG signals, between previously acquired data and new data \cite{Mendez2017}. In LDA each decision boundary is a hyperplane from which the minimum distance from the classes it separates is maximized, and the distance from the means of the classes are maximized. A decision boundary is defined as a linear combination of the feature values.
+Evaluating the certainty that a feature value belongs to a given class can be done by computing the posterior probability of each class. The posterior probability is a value between 0 and 1.
 
-\begin{equation}
-	P(w_j|x) = \frac{P(x|w_j)P(w)}{P(x)}
-\end{equation}
+The posterior probability is given as the product of the class conditional probability and the prior probability divided by a normalization term that guaranties that the posterior probabilities for all classes sums to one. The class conditional probability is the probability of obtaining a feature value when selecting samples randomly from a class. The prior probability is the likelihood that a sample from a class appears when compared to the other classes before it actually has appeared.
 
-, where $w_j$ represents a class and x represents a feature value. The posterior probability is given as the product of the class conditional probability, $P(x|w_j)$ and the prior $P(w)$ divided by a normalization term $P(x)$ that guaranties that the posterior probabilities for all classes sums to one. $P(x|w_j)$ is the probability of obtaining a feature value when selecting samples randomly from a class. $P(w)$ is the likelihood that a sample from a class appears compared to the other class before it actually has appeared.
-
-The effect of user training with and without providing uncertainty estimations during the user training, will be tested through a \textbf{Fitts Law test}. The test is a target reaching test in which a user must reach targets of varying size and distance to each other. The test evaluates users speed to reach targets, accuracy, overshoot and overall completion rate \cite{Scheme2013}. 
-Lastly a \textbf{statistical} analysis will be chosen to compare results of the Fitts’ Law test between users training with and without provided estimated uncertainty during user training.
+The effect of user training with and without providing uncertainty estimations during the user training, will be tested through a target reaching test. The test will executed in a virtual environment. During the test the user must reach targets of varying size and distance to each other. The test evaluates users speed to reach targets, accuracy, overshoot and overall completion rate \cite{Scheme2013}. 
+Lastly a \textbf{statistical} analysis will be chosen to compare results of the target reaching test between users training with and without provided estimated uncertainty during user training.
 
 
 \section{Study protocol}
 
-\textbf{Title of project}
-
-Using estimation uncertainty to improve prosthesis control 
-
-\textbf{Detail on investigators}
-
-All investigators are currently 8th. semester students, studying at Aalborg University.  
-
-\textbf{Purpose and background}
-
-Commercially available prosthesis have yet to adopt the use of pattern recognition methods in their control scheme. Mainly, this is due to the disadvantages exploited in “ref til introduction om problemer måske?”. A control scheme that reduce these disadvantages are therefore sought through the combination of regression and classification based methods. 
-The overall aim is to develop a novel control scheme for myoelectric prosthetic devices. Hereby it is sought to clarify if a combined regression and classification control scheme yields higher subject performance in a Fitts’ Law test compared to a method only using regression.         
-
 \textbf{Research question/hypothesis}
 
 The use of a Fitts’s Law test will show a significant improvement in subject prosthesis control with a combined regression and classification control scheme compared to a method using only regression. 
+
+Using uncertainty estimation as visual feedback during user training will improve the users performance in a linear discriminant controlled target reaching test based on electromyography recordings.
 
 \textbf{Ethical considerations}  
 
@@ -81,31 +67,40 @@ The subject needs to be:
 
 The subject must not have:
 \begin{itemize}
-	\item diseases that might influence subject performance   
+	\item diseased that, assessed by the investigators, might influence subject performance.
 \end{itemize}
 
 
 \textbf{Experiment procedure}
 
-The experiment is divided into two sessions: 1) training data acquisition, user training and performance test and 2) new training data acquisition and performance test. During the training data acquisition EMG data will be recorded from the subject with an EMG-electrode armband (Myoband from Thalmic Labs) when performing four different wrist movements(flexion, extension, radial deviation and ulnar deviation) as illustrated in \figref{FIGURE}. The data is subsequently used to fit a classification model used in the myoelectric control scheme for the following user training and performance test. Before the performance test the user is given a training period to get familiar with wrist movements used in the performance test. During the performance test the subject will perform a target-reaching task in a cartesian coordinate system of reaching a number of targets using wrist movements, where each axis represent a one of four wrist movements, as seen in figure \figref{FIGURE2}. The aim for the subject is to reach as many targets as quickly as possible. The subject will perform the target-reaching task twice - one in each session. The subject are divided into two groups: a test group and a control group. As the study is single-blinded the subject will not be informed which group he/she belongs to.
+The experiment is divided into two sessions: 1) training data acquisition, user training and performance test and 2) new training data acquisition and performance test. During the training data acquisition EMG data will be recorded from the subject with an EMG-electrode armband (Myoband from Thalmic Labs) when performing four different wrist movements (flexion, extension, radial deviation and ulnar deviation). The data is subsequently used to fit a classification model used in the myoelectric control scheme for the following user training and performance test. Before the performance test the user is given a training period to get familiar with wrist movements used in the performance test. During the performance test the subject will perform a target-reaching task in a cartesian coordinate system of reaching a number of targets using wrist movements, where each axis represent a one of four wrist movements. The aim for the subject is to reach as many targets as quickly as possible. The subject will perform the target-reaching task twice - one in each session. The subject are divided into two groups: a test group and a control group. As the study is single-blinded the subject will not be informed which group he/she belongs to.
 
-Chronology of session 1):
+\begin{figure}[H]                                         
+	\includegraphics[width=.4\textwidth]{figures/sStatusSeminar/systemPepeLineTG}  
+	\caption{System pipeline for the test group. The following chronology describes the steps in greater detail.}
+	\label{fig:sysPipeTG} 
+\end{figure} 
+
+
+Chronology of session 1, for subjects in the test group):
 \begin{enumerate}
 	\item Apply Myoband on dominant forearm at the thickest part.
 	\item Synchronize Myoband by performing wrist extension until three distinct vibrations are felt.
 	\item Perform 15 seconds of maximum voluntary contraction (MVC) of instructed movement. Following the MVC the subject will be given a 30 resting period to avoid fatigue.
-	\item Perform 15 seconds contractions of respectively 20\%, 40\% and 60\% of MVC. During these contractions the subject will control a green marker representing the EMG signal and try to follow a trapezoidal trajectory a precise as possible. The trapezoidal trajectory consists of two five second transition phases and one five second plateau phase as illustrated in figure \figref{FIGURE3}. Between each trial the subject will be given a 15 seconds resting period to avoid muscle fatigue.
+	\item Perform 15 seconds contractions of respectively 40\%, 60\% and 70\% of MVC. During these contractions the subject will control a green marker representing the EMG signal and try to follow a trapezoidal trajectory a precise as possible. The trapezoidal trajectory consists of two five second transition phases and one five second plateau phase. Between each trial the subject will be given a 15 seconds resting period to avoid muscle fatigue.
 	\item Repeat step 3-4 until training data from all four wrist movements has been recorded.
 	\item The subject will train the four wrist movements. Each movement will be performed 10 times, where each single movement consists of a five second movement with increased intensity. To improve the precision of movements the subject will receive visual feedback consisting of the probability the movement to belong to based on the classifier. The ideal probability during the training is a 100\% probability of belonging to the trained movement and a 0\% probability of belonging to the remaining movements. 
-	\item The subject will perform a target-reaching task. The subject will control an arrow originated from origo in a cartesian coordinate system representing the features extracted from the EMG data, where the length represent the intensity and direction depicts the movement performed. To reach a target the subject must dwell the head of the arrow within the target for 0.5 seconds. If this is achieved the target will disappear. The target will similarly disappear if the subject fails to achieve this within 15 seconds. When an outer target disappears a target centred in origo appears and the subject must reach this before a new outer target appears. This procedure is continued until no more targets are shown. After finishing the performance test the subject will be given a 2 minutes resting period.
+	\item The subject will perform a target-reaching test. The subject will control a cursor in a cartesian coordinate system representing the features extracted from the EMG data. To reach a target the subject must dwell the cursor within the target for 0.5 seconds. If this is achieved the target will disappear. The target will similarly disappear if the subject fails to achieve this within 15 seconds. When a target disappears a new target appears for the user to reach. This procedure is continued until no more targets are shown. After finishing the performance test the subject will be given a 2 minutes resting period.
 \end{enumerate}
 
 
-Chronology of session 2):
+Chronology of session 2, for subjects in the test group):
 \begin{enumerate}
 	\item Perform step 3-5 from session 1.
 	\item Perform step 7 from session 1. 
 \end{enumerate}
+
+The sessions for subjects in the control group will follow that if the test group with the exclusion of providing estimation uncertainties during step 6.
 
 \clearpage
 
