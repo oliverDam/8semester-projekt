@@ -28,3 +28,18 @@ In a multicategory case $c$ decision boundaries are defined. The approach for de
 
 where $x$ is assigned to $w_i$ if $g_i(x) > g_i(x)$ for all $j \neq i$. This type of classifier is called a linear machine, and will be adopted as classification method in this project. 
 
+
+\subsection{Generalized discriminant function}
+
+
+\subsection{Gradient descend/minimum criterion function}
+
+
+\subsection{Classification scores}
+Evaluating the certainty that a feature value belongs to a given class can be done by computing the posterior probability of each class. The posterior probability is a value between 0 and 1, and is calculated as follows:
+
+\begin{equation}
+P(w_j|x) = \frac{P(x|w_j)P(w)}{P(x)}
+\end{equation}
+
+, where $w_j$ represents a class and x represents a feature value. The posterior probability is given as the product of the class conditional probability, $P(x|w_j)$ and the prior $P(w)$ divided by a normalization term $P(x)$ that guaranties that the posterior probabilities for all classes sums to one. $P(x|w_j)$ is the probability of obtaining a feature value when selecting samples randomly from a class. $P(w)$ is the likelihood that a sample from a class appears compared to the other class before it actually has appeared. 
