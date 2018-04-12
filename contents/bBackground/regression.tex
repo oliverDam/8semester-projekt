@@ -1,9 +1,9 @@
 %background regression 
 \section{Linear regression methods}
 
-The use of linear regression is is often seen in statistics to determine relations between variables. Regressions methods also has its use in control schemes of myoelectric prosthetics \cite{Hwang2017, Bruun2017, Hahne14}. The difference between classification and regression is that classification attempt to classify similar patterns in recordings, between previously acquired data and new data, while regression methods provide a continuous output value based on the input value \cite{Mendez2017, Hahne2014}. \fxnote{sidste sætning er taget fra indtroduktionen men det stykke skal nok skrives om/væk alligevel for det omhandler classifikation VS regression}
+The use of linear regression is often used in statistics to determine relations between variables. Regressions methods also has its use in control schemes of myoelectric prosthetics \cite{Hwang2017, Bruun2017, Hahne14}. The difference between classification and regression is that classification attempt to classify similar patterns in recordings, between previously acquired data and new data, while regression methods provide a continuous output value based on the input value \cite{Mendez2017, Hahne2014}. %\fxnote{sidste sætning er taget fra indtroduktionen men det stykke skal nok skrives om/væk alligevel for det omhandler classifikation VS regression. edit: er taget ud af introduktionen nu.}
 
-Different models of linear regression exist to account for different uses. When utilizing regression methods the user must consider which type of input variables are used and what type of relation these variables might have. The appropriate regression must then be applied. Simple linear regression approximate a relation between one dependent and one independent variable \cite{Zar2009}:
+Different models of linear regression exist to account for different uses. When utilizing regression methods it must be considered which type of input variables are used and what type of relation these variables might have. The appropriate regression must then be applied. Simple linear regression approximate a relation between one dependent and one independent variable \cite{Zar2009}:
 
 \begin{equation} \label{eq:simpleLinearRegression}
 Y = \alpha + \beta X + \epsilon
@@ -16,4 +16,4 @@ This model can be expanded to estimate relations between one dependent variable 
 \hat{Y} = \alpha + \beta_1 X_{1} + \beta_2 X_{2} + ... + \beta_i X_{i} + \epsilon_i
 \end{equation} 
 
-, where $X_i$ is any number of independent variables \cite{Zar2009}. Since this regression model approximates the relation between several independent variables and one dependent variable, this model can be used as a control scheme in myoelectric prosthetics. Here several recordings of muscle activity, which can be considered independent variables, are used to estimate one control output, which would be the dependent variable. \cite{Bruun2017}
+, where $i$ is the number of independent variables \cite{Zar2009}. Since this regression model approximates the relation between several independent variables and one dependent variable, this model can be used as a control scheme in myoelectric prosthetics. Here several channel-recordings of muscle activity can be considered independent variables, and used to estimate one control output, which would be the dependent variable. \cite{Bruun2017}
