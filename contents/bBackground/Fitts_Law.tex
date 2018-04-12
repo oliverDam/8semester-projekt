@@ -1,30 +1,41 @@
 
+\section{Performance Metrics}
 
-\section{Performance measures}
-In aiding the quantification of the two proposed test groups, a Fitts' law test will be used. A general Fitts' law incorporates five different performance metrics in the evaluation of movement.\cite{Kamavuako2014,Scheme2013} The five metrics and their description can be found in table \ref{fig:Fitts}    
+Measuring the performance of achieved prosthesis control cannot be seen as a trivial task, and different approaches can be used. Fitt's law task is a common resorted to way of quantifying movements, first proposed by Poul Fitts in 1954 \cite{Fitts1954}. A Modified Fitts' law task designed for a virtual 2D and 3D target acquisition task has previously been used by Kamavuako et. al and Scheme et. al respectively, where four additional metrics were added. \cite{Kamavuako2014,Scheme2013} The four additional metrics were made by Poulton et. al and Simon et. al \cite{Poulton2013, Simon2011}. While the throughput measure from the conventional Fitt's law task is usable, it does not cover all aspects of the control required to complete a task. The four measures were added to quantitatively asses performance of naturalness, spontaneity, and compensatory motions during use. The five proposed performance measures in assessing myoelectric control are: \cite{Scheme2013a}
 
-  \begin{figure}[H]                                         
-  	\includegraphics[width=.4\textwidth]{figures/Fitt}  
-  	\caption{The table shows the metrics used in a generel Fitts' law test followed by a description of these.\cite{Scheme2013}}
-  	\label{fig:Fitts} 
-  \end{figure}
+	
+\textbf{Throughput} ($TP$) which represents the tradeoff between speed and accuracy. $TP$ uses the relationship of time taken to reach a certain target in seconds ($MT$) and the index of difficulty ($ID$). This forms: \cite{Scheme2013,Fitts1954}
+	
+	\begin{flalign}
+		TP=1/N\sum_{i=1}^{N} ID_i/MT_i
+		\label{TP}
+	\end{flalign}
+	
+	where $i$ is a specific movement condition and $N$ is the total number of targets. $ID$ relates to the target distance $D$ and width $W$. The $ID$ for each task, from the origin to a specific target of a certain size is calculated using\cite{Scheme2013,Fitts1954}
+	
+	\begin{flalign}
+		ID=log_2(\frac{D}{W}+1)
+		\label{ID}
+	\end{flalign} 
 
-Often the throughput ($TP$) is used by its own representing the tradeoff between speed and accuracy. $TP$ uses the relationship of time taken to reach a certain target in seconds ($MT$) and the index of difficulty ($ID$). This forms:\cite{Scheme2013}
 
-\begin{flalign}
-TP=1/N\sum_{i=1}^{N} ID_i/MT_i
-\label{TP}
-\end{flalign}
+\textbf{Path Efficiency} ($PE$) describes the quality of control by making a measure of the straightness of the cursor path to the target. Thereby by making a ratio of taken path distance versus the optimal path distance, testing the users ability to continuously control cursor position. Following the optimal path will result in a $PE$ of $100\%$. \cite{Poulton2013,Scheme2013}        
 
-where $i$ is a specific movement condition and $N$ is the total number of targets. $ID$ relates to the target distance $D$ and width $W$. The $ID$ for each task, from the origin to a specific target of a certain size is calculated using:\cite{Scheme2013}
-
-\begin{flalign}
-	ID=log_2(\frac{D}{W}+1)
+	\begin{flalign}
+	PE = 100\% * \frac{optimal ~ distance}{actual ~ distance}
 	\label{ID}
-\end{flalign}
+	\end{flalign}
+		 
  
+\textbf{Overshoot} ($O$) is the number of times the cursor enters and then leaves the target before the time inside the target is reached (also known as dwell time), across all target in the session, divided by the total number of targets. Overshoot tests the users ability to control the velocity of the cursor accurately. A perfect score of zero is reached if the cursor dwells within the target boundaries on the first try for all targets. \cite{Poulton2013,Scheme2013}
 
-Put in figure of the GUI used for testing where we represent the number of targets and the distance to them.
-Them afterward also calculate the ID for our targets.  
+	\begin{flalign}
+	O = \frac{\sum overshoots}{\sum targets}
+	\label{ID}
+	\end{flalign}
+     
+\textbf{Stopping Distance} describes the users ability to rest and thereby perform no movement. The stopping distance measure is the distance moved during the dwell time across all targets. \cite{Scheme2013}
 
+
+\textbf{Completion Rate} describes the percentage of targets reached within the total allowed time. \cite{Scheme2013,Simon2011}  
  
