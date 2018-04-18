@@ -9,13 +9,51 @@ In this section the filtering and feature extraction process be described.
 As earlier mentioned to counter the limitation in sample frequency imposed by the MYB an anti-aliasing filter has been implemented before further processing of the signal.  
 
 
-The data obtained with MYB is acquired with a sample frequency of 200 Hz this propose the error of aliasing due to the non sufficient sampling frequency of at least twice the highest frequency \cite{Pozzo2004}. Furthermore it is recommended in \cite{DeLuca2010} to filter the low-frequency spectrum to counter artifacts of movement. Presented obstacles in both the low-frequency and high-frequency level of the acquired signal has lead to an implementation of a second order bandpass filter from 10 Hz to 90 Hz.   
+The data obtained with MYB is acquired with a sample frequency of 200 Hz this propose the error of aliasing due to the non sufficient sampling frequency of at least twice the highest frequency \cite{Pozzo2004}. Furthermore it is recommended in \cite{DeLuca2010} to filter the low-frequency spectrum to counter artifacts of movement.
 
 
+
+ Presented obstacles in both the low-frequency and high-frequency level of the acquired signal has lead to an implementation of a second-order bandpass filter from 10 Hz to 90 Hz. 
+
+The figure shows aliasing in above 100 HZ 
+result in the filter 
+
+Also seen in the figure is the effect of the notch filter mentioned in \secref{sec:MYB}. The filtered signal clearly shows a drop in power around 50 Hz. 
+
+put figure here 
 
 
 
 \subsection{Feature extraction}
 
-To obtain the best possible classification, four different features have been extracted from the time-domain (TD) using their respective extraction methods. The features are Mean Absolute Value, Zero crossings, Slope Sign Changes and Waveform length. These will from now on be referred to as MAV, ZC, SSC and WL respectively. This set of features is chosen based on their extensive popularity when used for classification purposes and effect in real-time myoelectric control schemes, along with showing fast computational speeds.\cite{Hudgins1993, Kamavuako2016, Scheme2010}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
