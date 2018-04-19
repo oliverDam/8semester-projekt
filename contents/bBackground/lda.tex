@@ -1,6 +1,9 @@
-\section{Linear Discriminant Analysis}
+\section{Classification}
+For a myoelectric prosthesis to be able to distinguish between movements it needs to perform, a control scheme is needed to categorize the movements. The control scheme is trained by being given information about the EMG signal represented as the features extracted from the raw EMG. If the features between each movement are well separated the control scheme is able to recognize each distinct movement. For this purpose classification control schemes are commonly used. A classifier categorizes each movement as a class, and based on the input features it gives one class as output at a time. Using a classifier thus limits the user to only performing individual movements. However, if trained properly a classifier can reach a low error rate for the trained movements \cite{Scheme2013}. A frequently used classification control scheme for myoelectric prosthetic control is the Linear Discriminant Analysis classifier(LDA) \cite{Scheme2013, Fang2017, Scheme2015, Englehart2003}. The advantage of LDA is that whilst having a low computation time it still enables robust control. An assumption about the LDA is that the input needs to be Gaussian distributed \cite{Duda2000}, which the EMG probability properties has shown to adhere to \cite{Nazarpour2013}. The following section provides further theoretical information about the LDA classifier.
 
-Linear discriminant analysis (LDA) is a supervised classification method used to separate classes of data by linear decision boundaries. Each decision boundary is a hyperplane from which the shortest distance to each class feature value and class mean is maximized for each class. A decision boundary is defined as a linear combination of the feature values $x$ and is given as \cite{Duda2000}:
+
+\subsection{Linear Discriminant Analysis}
+LDA is a supervised classification method used to separate classes of data by linear decision boundaries. Each decision boundary is a hyperplane from which the shortest distance to each class feature value and class mean is maximized for each class. A decision boundary is defined as a linear combination of the feature values $x$ and is given as \cite{Duda2000}:
 
 \begin{equation}
 g(x) = w^tx +w_0
@@ -50,13 +53,13 @@ When the decision boundaries $g_i(w)$ have been calculated as in \eqref{eq:multi
 %\subsection{Gradient descend/minimum criterion function}
 
 
-\subsection{Classification probability scores}
-Based on the classification of feature values by the linear machine, certainties for the classes can be evaluated by computing the posterior probability of each class. Calculating the posterior probability is possible by knowing the likelihood $P(x|w_j)$ and the prior probability $P(w)$.
+\subsection{Classification confidence scores}
+An additional reason for using LDA as control scheme is because it enables the calculation of confidence scores for the classes, which will be used in \secref{sec:usertraining} to improve the prosthesis control. Based on the classification of feature values by the linear machine, confidence scores for the classes can be evaluated by computing the posterior probability of each class. Calculating the posterior probability is possible by knowing the likelihood $P(x|w_j)$ and the prior probability $P(w)$.
 %The likelihood is the conditional probability the feature value $x$ can appear in a certain class ($w_j$), while the prior probability $P(x)$, is the probability of a feature value appearing. %is this not always 100% in our case?
-The posterior probability is a value between 0 and 1, and is calculated as follows:
+The posterior probability for a class is a value between 0 and 1, and is calculated as follows:
 
 \begin{equation}
 P(w_j|x) = \frac{P(x|w_j)P(w)}{P(x)}
 \end{equation}
 
-, where $w_j$ represents a class and x represents a feature value. The posterior probability is given as the product of the class conditional probability, $P(x|w_j)$ and the prior probability $P(w)$ divided by a normalization term $P(x)$ that guaranties that the posterior probabilities for all classes sums to one. $P(x|w_j)$ is the probability of obtaining a feature value when selecting samples randomly from a class. $P(w)$ is the probability of a sample from a specific class appears in its correct class, before it have actually appeared. Summation of posterior probabilties for all classes will equal 1.
+where $w_j$ represents a class and x represents a feature value. The posterior probability is given as the product of the class conditional probability, $P(x|w_j)$ and the prior probability $P(w)$ divided by a normalization term $P(x)$ that guaranties that the posterior probabilities for all classes sums to one. $P(x|w_j)$ is the probability of obtaining a feature value when selecting samples randomly from a class. $P(w)$ is the probability of a sample from a specific class appears in its correct class, before it have actually appeared. Summation of posterior probabilities for all classes will equal 1.
