@@ -1,0 +1,22 @@
+\section{Statistical analysis}
+When evaluating the scores obtained in the performance test a statistical analysis is used. For this project a Friedman's test will be utilized is due to a small sample population, and because it is assumed that the probability distribution of the performance scores is unknown. Friedman's test is commonly used to test if different treatments have similar or different effects in a subject population. In the case of this project it is used to test whether performance in prosthesis control is similar or different across sessions in a subject population and if performance scores differ or bear resemblance between two subject populations. In the following section, theory on how the Friedman's test is calculated will be presented.
+
+\subsection{Friedman's test}
+When testing a subject population of a given number of measurements the measurements must first be arranged in columns, where each column corresponds to a certain measurement, and each row corresponds to one subject. Each row must then be ranked separately, where the smallest number is ranked 1. If numbers in a row are equal they get the mean of the rank they would have received. The sum $R$ of each column is calculated, and the number of measurements $k$, number of subjects $n$ is used to calculate the Friedman's F value in the following equation:
+
+\begin{equation}
+	F = \frac{12}{n \cdot k \cdot (k+1)} sum_{i=1}^{k} R_{i}^{2} - 3 \cdot n(k + 1)
+\end{equation}
+
+The critical value of F is then determined by looking in a table of critical values for Friedman's test. 
+
+The p-value indicates whether the null-hypothesis is to be rejected and an alternative hypothesis should be accepted; where the null-hypothesis expresses no relationship between measurements and the alternative hypothesis expresses a relationship between measurements. A p-value of 0.05 is usually used to as significance level. If the p-value is under 0.05 the null-hypothesis is rejected and vice versa. 
+
+
+
+
+
+ 
+%nævn om hvad h0-hypoteserne præcist er i metode afsnittet
+
+%"The term "null hypothesis" is a general statement or default position that there is no relationship between two measured phenomena, or no association among groups. Rejecting or disproving the null hypothesis—and thus concluding that there are grounds for believing that there is a relationship between two phenomena (e.g. that a potential treatment has a measurable effect)"
