@@ -1,6 +1,6 @@
-function goScatterPlot(bigMatrix)
+function dataEvaluation(EMGfeature)
 
-L = length(bigMatrix)/4;
+L = length(EMGfeature)/4;
 
 Ex = ones(L,1)*0;
 Fl = ones(L,1)*1;
@@ -9,7 +9,7 @@ Ul = ones(L,1)*3;
 
 overallMovement = [Ex;Fl;Ra;Ul];
 
-[pcs, scrs, ~, ~, pexp] = pca(bigMatrix);
+[pcs, scrs, ~, ~, pexp] = pca(EMGfeature);
 
 figure(1)
 %Intensity of principal components
