@@ -11,7 +11,7 @@ General practice in filtering the EMG-signal will imply implementing a notch fil
 
 This project will utilize the MYB for data acquisition and as mentioned in \secref{sec:MYB} the MYB has a sample rate of 200 Hz. In relation to this paper a sampling frequency of at least twice the maximum of the recorded signal is not possible, since muscles of the forearm have a maximum frequency of 400-500 Hz \cite{Cram2012}. This would require a sample rate of at least 1000 Hz, which cannot be achieved due to limitations in the MYB. The effect of the low sample rate of the MYB is aliasing in the recording, causing a frequency component not originally in the EMG signal. To account for this it would be resourceful to implement an anti-aliasing filter.  
 
-\subsection{Feature extraction}
+\subsection{Feature extraction} \label{sec:fe}
 
 The raw EMG-signal is not itself used for myoelectric prosthesis control, but features that are extracted from it. Thereby reducing the amount of redundant information limiting it to its most useful properties, resulting in faster computational speed. 
 There are numerous feature components from an EMG signal which can be extracted either from the time-domain, frequency-domain, or time-frequency domain. Most used are features from the time- and frequency-domain. Time-domain features can be categorized in five different types based on their mathematical properties: energy information complexity information, frequency information, prediction modelling and time-dependency. Extracting features from the frequency-domain requires a frequency transformation, calculating the spectral properties of the recorded signal, which takes up longer processing time than simply using time-domain features. 
