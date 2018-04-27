@@ -62,10 +62,10 @@
 %%% Mainmatter Settings %%%
 \pagenumbering{arabic} %use arabic page numbering in the mainmatter
 \fancyhf{}
-\fancyfoot[C]{\thepage} %\text{ of} \pageref{LastPage}}
-%\fancyfoot[RE,LO]{17gr7404}
-%\fancyhead[RE,LO]{}
-%\fancyhead[RE,LO]{\color{aaublue}\small\nouppercase\leftmark} %even page - chapter title
+\fancyfoot[C]{\thepage} %\text{ of} \pageref{LastPage}			% ADD LABLE{LASTPAGE} TO LAST PAGE !!
+\fancyfoot[RE,LO]{17gr7404}																								   %
+\fancyhead[RE,LO]{}																												%% } consider fancyfoots
+\fancyhead[RE,LO]{\color{aaublue}\small\nouppercase\leftmark} %even page - chapter title %
 \pagestyle{fancy}
 
 
@@ -73,11 +73,11 @@
 
 %\input{contents/statusText.tex}
 \chapter{Introduction}
-%
+
 \input{contents/aIntroduction/introduction.tex}
-%
+
 \chapter{Background}
-%
+
 \input{contents/bBackground/anatomy.tex}
 \input{contents/bBackground/EMG.tex}
 \input{contents/bBackground/myoarmband.tex}
@@ -86,23 +86,23 @@
 \input{contents/bBackground/regression.tex}
 \input{contents/bBackground/Fitts_Law.tex}
 \input{contents/bBackground/statistic.tex}
-%
-%
+
+
 \chapter{Methods}
-%
 \input{contents/zMethods/StudyDesign.tex}
 \input{contents/zMethods/dataAcquisition.tex}
 \input{contents/zMethods/dataProcessing.tex}
-\input{contents/zMethods/study_protocol.tex}
-%
+
+
 \chapter{Results}
-%
+
 \chapter{Discussion}
-%
+
 \chapter{Conclusion}
-%
-%
-	
+
+
+
+
 \begin{multicols}{2}
 	
 \urlstyle{same}
@@ -110,10 +110,12 @@
 %\cleardoublepage
 \end{multicols}
 
-%% BILAG
-%\begin{appendices}
-%	
-%\end{appendices}
+\cleardoublepage
+% BILAG
+\begin{appendices}
+\input{contents/zMethods/study_protocol.tex}
+\input{contents/zMethods/study_protocol_checklist.tex}
+\end{appendices}
 
 
 \end{document}

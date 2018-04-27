@@ -25,7 +25,7 @@ In the interest of representing the signal with its true properties a second ord
 
 In \secref{sec:fe} it was stated that when extracting features for real-time prosthesis control, features are extracted form segments of the signal called windows. This projects will for the feature extraction utilize a window size of 200 ms and a 50 \% overlap for all channels. This thereby gives the possibility of calculating and updating the feature values ten times a second.    
 
-The features chosen to represent the information of movements contained in the signal is primarily based on recommendations from \cite{Donavan2017} where they found the optimal features for a real-time classification control scheme using the MYB. Donavan et al. used so called space domain features along with the MYB and got a five percent higher accuracy than by using the well known Hudgins time domain features. A total of seven features, Mean Absolute Value (MAV), Mean Mean Absolute Value (MMAV), Scaled Mean Absolute Value (SMAV), Correlation Coefficient (CC), Mean Absolute Difference Normalized (MADN), Mean Absolute Difference Raw (MADR) and Scaled Mean Absolute Difference Raw (SMADR) were derived and the following section will explain the extraction of each. This project will use SMAV, CC, MADN and SMADR for the final classification to reduce redundancy, but all seven will be explained because some features are a combination of others. \cite{Donavan2017} Furthermore it has been chosen to extract the time domain feature of waveform length (WL) to represent frequency related information of the signal. The extraction of this feature will lastly be explained as well. 
+The features chosen to represent the information of movements contained in the signal is primarily based on recommendations from \cite{Donovan2017} where they found the optimal features for a real-time classification control scheme using the MYB. Donovan et al. used so called space domain features along with the MYB and got a five percent higher accuracy than by using the well known Hudgins time domain features. A total of seven features, Mean Absolute Value (MAV), Mean Mean Absolute Value (MMAV), Scaled Mean Absolute Value (SMAV), Correlation Coefficient (CC), Mean Absolute Difference Normalized (MADN), Mean Absolute Difference Raw (MADR) and Scaled Mean Absolute Difference Raw (SMADR) were derived and the following section will explain the extraction of each. This project will use SMAV, CC, MADN and SMADR for the final classification to reduce redundancy, but all seven will be explained because some features are a combination of others. \cite{Donovan2017} Furthermore it has been chosen to extract the time domain feature of waveform length (WL) to represent frequency related information of the signal. The extraction of this feature will lastly be explained as well. 
 
 
 
@@ -66,7 +66,7 @@ As each of the eight MYB sensors are located around the arm, the pick up signals
 
 $X_i[n]$ is the $n^{th}$ data point from channel $i$. When calculating CC the data from window is normalized by subtracting its mean value from each raw data point, and afterwards divided by their standard deviation. 
 
-Calculating CC can prove rather demanding computatinaly due to the series og multiplication operations. Therefore Donavan et al. proposed introducing a MAD-based feature of lower computational complexity which still characterizes the spatial relationship between channels. The MAD feature feature is normalized in the same way as CC making up the MADN feature calculated as 
+Calculating CC can prove rather demanding computatinaly due to the series og multiplication operations. Therefore Donovan et al. proposed introducing a MAD-based feature of lower computational complexity which still characterizes the spatial relationship between channels. The MAD feature feature is normalized in the same way as CC making up the MADN feature calculated as 
 
 \begin{flalign}
 	MADN_i=\frac{\sum_{n=1}^{ws}|X_i[n]-X_{i+1}[n]|}{\sum_{n=1}^{ws}X_i[n]^2}=\frac{\sum_{n=1}^{ws}|X_i[n]-X_{i+1}[n]|}{ws}
@@ -90,7 +90,7 @@ As the SMAV feature the MAD feature can be scaled by MMAV to remove movement int
 \end{flalign}
 
 
-As stated in the beginning some of these features introduce redundancy, subsequently the features of SMAV, CC, MADN and SMADR are the ones used for classification. \cite{Donavan2017}
+As stated in the beginning some of these features introduce redundancy, subsequently the features of SMAV, CC, MADN and SMADR are the ones used for classification. \cite{Donovan2017}
 
 To further improve the decision foundation of the classifier it was proposed to include the time domain feature of WL calculated by 
 
