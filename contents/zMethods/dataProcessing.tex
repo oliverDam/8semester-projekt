@@ -5,7 +5,7 @@
 The following two sections will cover the implementation of the filter used to prepare the EMG-signal and the extraction of features to represent the signal. Choices behind implemented methods builds on background knowsedge acquired in \secref{sec:pross}. 
 
 
-\subsection{Filtering of signal} \label{sec:prePros} 
+\subsection{Filtering of signal} \label{sub:prePros} 
 
 As earlier mentioned in \secref{sec:filt}, due to the MYB specifications limiting the sample rate to 200 Hz and movement artefact's in the low-frequency spectrum, it would be resourceful to implement a bandpass filter to avoid a biased signal.
 In the interest of representing the signal with its true properties a second order Butterworth bandpass filter has been implemented with cut-off frequencies of 10 Hz and 90 Hz. A filter steeper than second order was deselected due to a chosen trade-off between filter performance and computational performance, which is of great importance when doing real-time control. Below in \figref{fig:filt} is the result of implementing the bandpass filter shown. The unfiltered signal shows frequency components in low-frequency spectrum around 0-10 Hz and indicating frequency components above above 100 Hz. Both ends of the spectrum has been dampened limiting impact of artefact's and possible aliasing. Furthermore is the presence of the build-in 50 Hz notch filter elucidated as explained in \secref{sec:MYB}.     
@@ -21,7 +21,7 @@ In the interest of representing the signal with its true properties a second ord
 
 
 
-\subsection{Feature extraction}
+\subsection{Feature extraction} \label{sub:featExtr}
 
 In \secref{sec:fe} it was stated that when extracting features for real-time prosthesis control, features are extracted form segments of the signal called windows. This projects will for the feature extraction utilize a window size of 200 ms and a 50 \% overlap for all channels. This thereby gives the possibility of calculating and updating the feature values ten times a second.    
 
