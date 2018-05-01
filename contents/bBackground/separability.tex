@@ -1,14 +1,14 @@
 \section{Data separability}
-In addition to evaluate user performance in a real-time performance test, the clustering of the training data used to fit the classifier and regressors will be evaluated. 
+Besides evaluating the user performance in real-time, it would be beneficial to evaluate the clustering of feature values used to fit the classifier and regressors off-line. This will provide information on how the clusters between classes separates and how the feature values within clusters bundle. It can thus be evaluated between sessions if the clusters are more distinguished and thereby easier for the classifier and regressors to discriminate between. For this purpose a Principle Component Analysis(PCA) will be utilized to reduce the dimensionality of the feature space, from which subsequently can be used to calculate the distance between clusters and distances from feature values to centroids within clusters. The following section provides theory information on the PCA procedure. 
 
 
 \subsection{Principal Component Analysis}
-PCA is used to express a set of possibly correlated variables into uncorrelated components, called principal components. A dataset of many variables can thus be expressed in a reduced dimensionality hyperspace using less variables that are the most defining for the given dataset. Each principal component (PC) is orthogonal on the former and are uncorrelated and have zero covariance. They each define the largest variance in an axis, such that PC 1 describes the direction of the maximum variance of the dataset. Each following PC describes the next highest variance of the dataset, with the constraint that is orthogonal and has zero covariance with any of the former PCs.
-PCA is the orthogonal projection of data onto a lower dimension linear space. A PC is found by minimizing the variance by projecting the feature values (red dots) onto the line describing the highest variance in the data set (purple line) as seen on \figref{projection}. The PC (purple line) is found by minimizing the mean square distance between the data points. 
+PCA is used to express a set of possibly correlated variables into uncorrelated components, called principal components (PC). A dataset of many variables can thus be expressed in a reduced dimensionality hyperspace using less variables that are the most defining for the given dataset. Each principal component is orthogonal on the former and are uncorrelated and have zero covariance. They each define the largest variance in an axis, such that PC 1 describes the direction of the maximum variance of the dataset. Each following PC describes the next highest variance of the dataset, with the constraint that it is orthogonal and has zero covariance with any of the former PCs.
+PCA is the orthogonal projection of data onto a lower dimension linear space. A PC is found by minimizing the variance by projecting the feature values, the red dots in \figref{projection}, onto the line describing the highest variance in the data set (purple line) as seen on \figref{projection}. The PC (purple line) is found by minimizing the mean square distance between the data points. 
 
 \begin{figure}[H] 
 	\includegraphics[width=0.3\textwidth]{figures/zASP/projection}
-	\caption{Projection of data variables (red dots) onto PC axes (purple).}
+	\caption{Projection of feature values (red dots) onto PC axes (purple).}
 	\label{projection}
 \end{figure}
 \vspace{-10pt}
@@ -17,12 +17,12 @@ The algebraic method of calculating the PCs can be done by using Singular Value 
 \begin{equation}
 S = X \textquoteright X
 \end{equation}
-Where S is the cross product and X is the dataset matrix. When finding the PCs it includes an eigen-analysis of S. The eigenvalues of are solutions to the following equation:
+Where S is the cross product and X is the feature set matrix. When finding the PCs it includes an eigen-analysis of S. The eigenvalues of are solutions to the following equation:
 %\verticalspace{1}
 \begin{equation}
 | S - \lambda I |  = 0
 \end{equation}
-Where $\lambda$ is the variances of each PC and I is the identity matrix. After solving for $\lambda$ the eigenvectors can be solved through the following equation:
+Where $\lambda$ is the variance of each PC and I is the identity matrix. After solving for $\lambda$ the eigenvectors can be solved through the following equation:
 \begin{equation}
 det | S - \lambda I | b_{i} = 0
 \end{equation}
@@ -30,5 +30,20 @@ Where $b_{i}$ is used to calculate the eigenvectors as in:
 \begin{eqnarray}
 u_{i} = \frac{b_{i}}{\sqrt{b_{i}^{\textquoteright} b_{i}}}
 \end{eqnarray}
-Where $u_{i}$ is the i number of eigenvectors that contain a contribution to the principal components.
-The SVD orders the eigenvalues by size $\lambda_{1} > \lambda_{2} … > \lambda_{i}$. The scores for each PC is equal to the corresponding eigenvalue for that exact axis. The eigenvalues describe how much of the variance is accounted for by the associated PC. Summation of all eigenvalues accounts for the total variance of the data set; this is called the trace. To find how much the each PC accounts for, the eigenvalue of that PC is divided by the total variance: $\%~ of~ total~ variance~ = \frac{\lambda_{i}}{Trace}$. This can be used for deciding how many components are significant and by how much the dataset can be reduced. In our case this choice is made beforehand, due to the intention of visualizing the PCs in a three dimensional space. 
+Where $u_{i}$ is the i number of eigenvectors. The number eigenvectors equal the dimension size of the original feature space. 
+The SVD orders the eigenvalues by size $\lambda_{1} > \lambda_{2} … > \lambda_{i}$. The scores for each PC is equal to the corresponding eigenvalue for that exact axis. The eigenvalues describe how much of the variance is accounted for by the associated PC. Summation of all eigenvalues accounts for the total variance of the data set; this is called the trace. To find how much the each PC accounts for, the eigenvalue of that PC is divided by the total variance: $\%~ of~ total~ variance~ = \frac{\lambda_{i}}{Trace}$. Deciding how many PCs the feature space should be reduced to, by setting a threshold of how much of the total variance should be preserved.
+
+\subsection{Distance measure}
+After reducing the dimensionality of the original feature set the clusters can be analysed. For the purpose of measuring distances between and within clusters the centroid of each cluster must be calculated, as in \eqref{eq:centroid}:
+
+\begin{equation} \label{eq:centroid}
+	C = \Bigg[ \frac{[x_1+x_2 +~...~+ x_i],[y_1+y_2 +~...~+ y_i] ,~...~,[k_1+k_2 +~...~k_i]}{k} \Bigg]
+\end{equation}
+
+Where $C$ is the centroid, $i$ is the number of feature point in a dimension and $k$ is the number of dimensions. To calculate the distance between centroids of clusters the Euclidean distance (ED) is computed. The ED is the length of the a line segment connecting points, in this case in form of two centroids $p$ and $q$. The calculation of ED in a $k$-dimensional space is as in \eqref{eq:euclidiandistance}:
+
+\begin{equation} \label{eq:euclidiandistance}
+	ED(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2~+~...~+ (p_k-q_k)^2}
+\end{equation} 
+
+When calculating the distance from feature values in a cluster to their corresponding centroid the ED is computed likewise. To get an general impression of the distance from the feature values constituting the cluster to the centroid of the cluster the average of the distances is calculated. 
