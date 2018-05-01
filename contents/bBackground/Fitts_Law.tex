@@ -4,53 +4,44 @@
 Measuring the performance of achieved prosthesis control cannot be seen as a trivial task, and different approaches can be used. The achieved performance can be measured by affixing a prosthesis on to the test subject and validate performance hereby. Often, like the current project, the subjects do not consist of actual amputees but instead healthy subject. In these cases the performance validation is done by implementing a virtual test environment where the subjects is to control an object on the computer screen by performing movements. The following section will further elucidate the procedures of such a virtual test for validating prosthetic control.      
 
 
-\subsection{Modified Fitt's Law}
+\subsection{Modified Fitts' Law}
 
- Fitt's law task is a common method of quantifying performance of movements, first proposed by Paul M. Fitts in 1954 \cite{Fitts1954}. Originally, the only output of a Fitts' law task was the throughput, as given by \eqref{TP}. A modified Fitts' law task designed for a virtual 2D and 3D target acquisition task has later been used by \cite{Kamavuako2014} and \cite{Scheme2013} respectively. Here, four additional metrics were added in an online task, where a virtual computer cursor was used to represent the control output \cite{Scheme2013, Kamavuako2014}. The four additional metrics, path efficiency, overshoot, stopping distance and completion rate, were made by \cite{Poulton2013} and \cite{ Simon2011}. While the throughput measure from the conventional Fitt's law task is usable, it does not cover all aspects of the control required to complete a task. The additional four measures were added to quantitatively assess performance of naturalness, spontaneity, and compensatory motions during use. The total five proposed performance measures in assessing myoelectric control are \cite{Scheme2013a}: 
+Fitts' law task is a common method of quantifying performance of movements, first proposed by Paul M. Fitts in 1954 \cite{Fitts1954}. Originally, the only output of a Fitts' law task was the throughput, as given by \eqref{TP}. A modified Fitts' law task designed for a virtual 2D and 3D target acquisition task has later been used by \cite{Kamavuako2014} and \cite{Scheme2013} respectively. Here, four additional metrics were added in an online task, where a virtual computer cursor was used to represent the control output \cite{Scheme2013, Kamavuako2014}. The four additional metrics, path efficiency, overshoot, stopping distance and completion rate, were made by \cite{Poulton2013} and \cite{ Simon2011}. While the throughput measure from the conventional Fitts' law task is usable, it does not cover all aspects of the control required to complete a task. The additional four measures were added to quantitatively assess performance of naturalness, spontaneity, and compensatory motions during use. The total five proposed performance measures in assessing myoelectric control are \cite{Scheme2013a}: 
 
-Throughput ($TP$) which represents the trade-off between speed and accuracy. $TP$ uses the relationship of time taken to reach a certain target in seconds ($MT$) and the index of difficulty ($ID$). This forms: \cite{Scheme2013,Fitts1954}
-	
-	\begin{flalign}
-		TP=\frac{1}{N}\sum_{i=1}^{N} \frac{ID_i}{MT_i}
-		\label{TP}
-	\end{flalign}
-	
-	where $i$ is a specific movement and $N$ is the total number of movements. $ID$ relates to the target distance $D$ and width $W$. The $ID$ for each task, from the origin to a specific target of a certain size is calculated using \cite{Scheme2013,Fitts1954}:
-	
-	\begin{flalign}
-		ID=log_2(\frac{D}{W}+1)
-		\label{ID}
-	\end{flalign} 
+Throughput (TP) which represents the trade-off between speed and accuracy. TP uses the relationship of time taken to reach a certain target in seconds ($MT$) and the index of difficulty (ID). This forms: \cite{Scheme2013,Fitts1954}
 
+\begin{equation} \label{eq:TP}
+TP=\frac{1}{N}\sum_{i=1}^{N} \frac{ID_i}{MT_i} 
+\end{equation}
 
-Path Efficiency ($PE$) describes the quality of control by making a measure of the straightness of the cursor's path to the target, by making a ratio of the actual path distance versus the optimal path distance. This tests the users ability to continuously control the cursor position. Following the optimal path will result in a $PE$ of 100\%. $PE$ is calculated as follows \cite{Scheme2013, Poulton2013}:       
+where $i$ is a specific movement and $N$ is the total number of movements. ID relates to the target distance $D$ and width $W$. The ID for each task, from the origin to a specific target of a certain size is calculated using \cite{Scheme2013,Fitts1954}:
 
-	\begin{flalign}
-	PE = \frac{Optimal ~ Distance}{Actual ~ Distance}
-	\label{ID}
-	\end{flalign}
-		 
- 
-Overshoot ($OS$) is the number of times the cursor enters and then leaves the target before the dwell time inside the target is reached, across all target in the task, divided by the total number of targets. $OS$ tests the users ability to control the velocity of the cursor accurately. A perfect $OS$-score of zero is reached if the cursor dwells within the target boundaries on the first try for all targets, and is calculated as the following \cite{Scheme2013, Poulton2013}:
+\begin{equation} \label{eq:ID}
+ID=log_2(\frac{D}{W}+1)
+\end{equation}
 
-	\begin{flalign}
-	OS = \frac{Total ~ Number ~ of ~ Overshoots}{Total ~ Number ~ of ~ Targets}
-	\label{ID}
-	\end{flalign}
-     
-Stopping Distance ($SD$) describes the users ability to rest and thereby perform no movement. The $SD$ measure is the distance moved during the dwell time across all targets, and is given as \cite{Scheme2013}:
+Path Efficiency (PE) describes the quality of control by making a measure of the straightness of the cursor's path to the target, by making a ratio of the actual path distance versus the optimal path distance. This tests the users ability to continuously control the cursor position. Following the optimal path will result in a PE of 100\%. PE is calculated as follows \cite{Scheme2013, Poulton2013}:       
 
-	\begin{flalign}
-	SD = \sum_{i=1}^{N} (Distance ~ Inside ~ Target)_i
-	\label{SD}
-	\end{flalign}
+\begin{equation} \label{eq:PE}
+PE = \frac{Optimal ~ Distance}{Actual ~ Distance}
+\end{equation}		 
+
+Overshoot (OS) is the number of times the cursor enters and then leaves the target before the dwell time inside the target is reached, across all target in the task, divided by the total number of targets. OS tests the users ability to control the velocity of the cursor accurately. A perfect OS-score of zero is reached if the cursor dwells within the target boundaries on the first try for all targets, and is calculated as the following \cite{Scheme2013, Poulton2013}:
+
+\begin{equation} \label{eq:OS}
+OS = \frac{Total ~ Number ~ of ~ Overshoots}{Total ~ Number ~ of ~ Targets}
+\end{equation}
+
+Stopping Distance (SD) describes the users ability to rest and thereby perform no movement. The SD measure is the distance moved during the dwell time across all targets, and is given as \cite{Scheme2013}:
+
+\begin{equation} \label{eq:SD}
+SD = \sum_{i=1}^{N} (Distance ~ Inside ~ Target)_i
+\end{equation}
 
 where $i$ is a reached target and $N$ is the total number of reached targets.
 
-Completion Rate ($CR$) describes the percentage of targets reached within the total allowed time. This gives a general idea of the user's performance, and is calculated as \cite{Scheme2013,Simon2011}: 
+Completion Rate (CR) describes the percentage of targets reached within the total allowed time. This gives a general idea of the user's performance, and is calculated as \cite{Scheme2013,Simon2011}: 
 
-	\begin{flalign}
-	CR = \frac{Number ~ of ~ Reached ~ Targets}{Total ~ Number ~ of ~ Targets}
-	\label{CR}
-	\end{flalign}
- 
+\begin{equation} \label{eq:CR}
+CR = \frac{Number ~ of ~ Reached ~ Targets}{Total ~ Number ~ of ~ Targets}
+\end{equation}
