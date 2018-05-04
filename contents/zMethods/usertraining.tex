@@ -7,28 +7,11 @@ This section provides information on how the visual feedback was presented to th
 
 \begin{figure}[H] 
 \centering
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=.4\textwidth]{figures/xBackground/usertraintestGUI}  
-		\caption{Illustration of the user training interface for the test group showing the bar plot indicating the confidence level of movement recognition and horizontal bar plot indicating contraction level. The picture on the right side of the bar plot indicates which movement needs to be performed.}
-	\end{subfigure}                
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=.4\textwidth]{figures/xBackground/usertraincontrolGUI}  
-		\caption{Illustration of the user training interface for the control group showing the bar plot indicating which movement is being recognized and the horizontal bar plot indicating contraction level. The picture on the right side of the bar plot indicates which movement needs to be performed.}
-	\end{subfigure}
-	\caption{A figure with two subfigures}
+	\subfigure[Test group user training interface.]%[b]{0.3\textwidth}
+		{\includegraphics[width=.49\textwidth]{figures/xBackground/usertraintestGUI}}
+	\subfigure[Control group user training interface.]%[b]{0.3\textwidth}
+	    {\includegraphics[width=.49\textwidth]{figures/xBackground/usertraincontrolGUI}}  
+	\caption{Illustration of the user training interface for the test group (on the left) and the control group (on the right). The vertical bar plot indicates which movement is being recognized and the horizontal bar plot indicates contraction level. The two vertical lines in the contraction level bar plot illustrates the contraction level interval the subject must reach. The large picture of a movement indicates which movement needs to be performed. The difference between the feedback the two subject groups receive is the information given in the vertical recognition bar plot. The control group only sees a full bar of the movement the control system recognizes the most, whereas the test groups receives the exact recognition probabilities of all movements.}
     \label{fig:feedbackGUI}
 \end{figure}
 
-%\begin{figure}[H]
-%	{
-%		\includegraphics[width=.46\textwidth]{figures/xBackground/usertraintestGUI}
-%	}
-%	\hspace{5pt}
-%	{
-%		\includegraphics[width=.46\textwidth]{figures/xBackground/usertraincontrolGUI}         
-%	}
-%	\caption{Illustration of the user training interface for the test group (on the left) and the control group (on the right). showing the bar plot indicating which movement is being recognized and the horizontal bar plot indicating contraction level. The picture on the right side of the bar plot indicates which movement needs to be performed.}
-%	\label{fig:feedbackGUI}
-%\end{figure}
