@@ -1,0 +1,46 @@
+\section{Building the Control System}
+
+Following the data acquisition and processing, the training data obtained was used for movement classification. The features extracted for each of the seven movements were used for building the classification. The first subsection will cover the implementation of the classification and its output. An explanation of how the classification output for user training and control is used can be found in \secref{sec:feedback}. Furthermore to be able to read out the intensity of movements a regression based calculation is made. This implementation of movement intensity control will be explained in the adjacent subsection.   
+
+
+\subsection{Movement Classification}
+
+For classifying movements in this project the use of Linear Discriminant Analysis will be used as presented in \secref{sec:BG:classification}. The classifier is fed with the prior acquired training data in order to train the control system.  
+The acquired training data were assembled in to matrices for each of the seven movements with one of the five features, containing the feature values for each of the eight channels. An example of one of these matrices can be seen in \eqref{eq:CCMatrix}. This matrix contains the feature values for the feature CC for all three intensities of extension across all eight channels.  
+
+\begin{equation} \label{eq:CCMatrix}
+AllIntCC\_Ex=\begin{bmatrix} 
+\begin{bmatrix}
+\ CCExtension40_{1,1}, CCExtension40_{1,2} \cdots CCExtension40_{1,8} \\ 
+\ \vdots \qquad \qquad \qquad \ddots \qquad \qquad \qquad \vdots \\
+\ CCExtension40_{n,1}, CCExtension40_{n,2}  \cdots CCExtension40_{n,8} \\ \end{bmatrix} \\
+\begin{bmatrix} 
+\ CCExtension50_{1,1}, CCExtension50_{1,2} \cdots CCExtension50_{1,8} \\
+\ \vdots \qquad \qquad \qquad \ddots \qquad \qquad \qquad \vdots \\
+\ CCExtension50_{n,1}, CCExtension50_{n,2} \cdots CCExtension50_{n,8} \\ \end{bmatrix} \\
+\begin{bmatrix} 
+\ CCExtension70_{1,1}, CCExtension70_{1,2} \cdots CCExtension70_{1,8} \\
+\ \vdots \qquad \qquad \qquad \ddots \qquad \qquad \qquad \vdots \\
+\ CCExtension70_{n,1}, CCExtension70_{n,2} \cdots CCExtension70_{n,8} \\ \end{bmatrix} \\
+\end{bmatrix}
+\end{equation}
+
+As seen the matrix consists of three smaller matrices, one for each intensity as explained in \secref{sec:M:dataAcquisition}. n indicates the number of feature values for the corresponding feature across all channels.  
+The AllIntCC$\_$Ex matrix is just one of multiple as mentioned, to assemble a total training matrix to feed train the classifier all matrices are assembled into one big training matrix. This matrix can be seen below in \eqref{eq:AllMatrix}. 
+
+
+\small \begin{equation} \label{eq:AllMatrix}
+\begin{bmatrix} 
+\ AllIntCC\_Ex, AllIntSMAV\_Ex, AllIntSMADR\_Ex, AllIntMADN\_Ex, AllIntWL\_Ex \\
+\ AllIntCC\_Fl, AllIntSMAV\_Fl, AllIntSMADR\_Fl, AllIntMADN\_Fl, AllIntWL\_Fl \\
+\ AllIntCC\_Rd, AllIntSMAV\_Rd, AllIntSMADR\_Rd, AllIntMADN\_Rd, AllIntWL\_Rd \\
+\ AllIntCC\_Ud, AllIntSMAV\_Ud, AllIntSMADR\_Ud, AllIntMADN\_Ud, AllIntWL\_Ud \\
+\ AllIntCC\_Ch, AllIntSMAV\_Ch, AllIntSMADR\_Ch, AllIntMADN\_Ch, AllIntWL\_Ch \\
+\ AllIntCC\_Oh, AllIntSMAV\_Oh, AllIntSMADR\_Oh, AllIntMADN\_Oh, AllIntWL\_Oh \\
+\ AllIntCC\_Re, AllIntSMAV\_Re, AllIntSMADR\_Re, AllIntMADN\_Re, AllIntWL\_Re \\
+\end{bmatrix}
+\end{equation}
+
+Training the classifier, by fitting the matrix presented in \eqref{eq:AllMatrix} with labels for each of the movements, making it a supervised learning method. The classifier thereby forms seven classes, one for each of the movement, with discriminative decision boundaries separating them. For the real-time use of classification outcome and confidence scores in user training and performance test as intended, use of the predict function in MATLAB has been used. This is done by continuously     
+
+

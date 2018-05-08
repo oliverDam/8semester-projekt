@@ -1,0 +1,23 @@
+
+\subsection{Movement Intensity Control} 
+
+To get a way of measuring the intensity of a performed movement a regression based intensity control has been implemented. 
+
+
+
+\begin{equation} \label{eq:segMatrix}
+AllIntMAVEx=\begin{bmatrix} 
+\begin{bmatrix}
+\ MAVExtension40_{1,1}, MAVExtension40_{1,2} \cdots MAVExtension40_{1,8} \\ 
+\ \vdots \qquad \qquad \qquad \ddots \qquad \qquad \qquad \vdots \\
+\ MAVExtension40_{n,1}, MAVExtension40_{n,2}  \cdots MAVExtension40_{n,8} \\ \end{bmatrix} \\
+\begin{bmatrix} 
+\ MAVExtension50_{1,1}, MAVExtension50_{1,2} \cdots MAVExtension50_{1,8} \\
+\ \vdots \qquad \qquad \qquad \ddots \qquad \qquad \qquad \vdots \\
+\ MAVExtension50_{n,1}, MAVExtension50_{n,2} \cdots MAVExtension50_{n,8} \\ \end{bmatrix} \\
+\begin{bmatrix} 
+\ MAVExtension70_{1,1}, MAVExtension70_{1,2} \cdots MAVExtension70_{1,8} \\
+\ \vdots \qquad \qquad \qquad \ddots \qquad \qquad \qquad \vdots \\
+\ MAVExtension70_{n,1}, MAVExtension70_{n,2} \cdots MAVExtension70_{n,8} \\ \end{bmatrix} \\
+\end{bmatrix}
+\end{equation}
