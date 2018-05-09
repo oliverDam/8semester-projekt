@@ -1,12 +1,12 @@
 \section{Building the Control System}
 
-Following the data acquisition and processing, the training data obtained was used for movement classification. The features extracted for each of the seven movements were used for building the classification. The first subsection will cover the implementation of the classification and its output. An explanation of how the classification output for user training and control is used can be found in \secref{sec:M:usertraining} and \secref{sec:M:fittsLaw}. Furthermore to be able to read out the intensity of movements a regression based calculation is made. The implementation of movement intensity control will be explained in the adjacent section.   
+Following the data acquisition and processing, the training data was used for movement classification. The features extracted for each of the seven movements were used for building the classifier. In \subref{sub:M:classification} the implementation of the classification and an explanation of its output will be covered. Furthermore to be able to obtain proportional control a regression based models were made. The implementation of proportional control will be explained in \subref{sub:M:regression}. An explanation of how the classifier and regression models were used in the user training and in the performance test can be found in \secref{sec:M:usertraining} and \secref{sec:M:fittsLaw} respectively.  
 
 
-\subsection{Movement Classification}
+\subsection{Movement Classification} \label{sub:M:classification}
 
-For classifying movements in this project the use of Linear Discriminant Analysis will be used as presented in \secref{sec:BG:classification}. The classifier is fed with the prior acquired training data in order to train the control system.  
-The acquired training data were assembled in to matrices for each of the seven movements with one of the five features, containing the feature values for each of the eight channels. An example of one of these matrices can be seen in \eqref{eq:CCMatrix}. This matrix contains the feature values n, for the feature CC for all three intensities of extension across all eight channels.  
+For classifying movements Linear Discriminant Analysis was used as presented in \secref{sec:BG:classification}. The classifier was fitted with the previously acquired training data in order to build the control system.  
+The acquired training data was assembled into matrices for each of the seven movements with one of the five features, containing the feature values for each of the eight channels. An example of one of these matrices can be seen in \eqref{eq:CCMatrix}. This matrix contains $n$ feature values for the feature CC for all three intensities of extension across all eight channels.  
 
 \begin{equation} \label{eq:CCMatrix}
 AllIntCC\_Ex=\begin{bmatrix} 
@@ -25,12 +25,11 @@ AllIntCC\_Ex=\begin{bmatrix}
 \end{bmatrix}
 \end{equation}
 
-As seen the matrix consists of three smaller matrices, one for each of the intensity as explained in \secref{sec:M:dataAcquisition}.  
-The AllIntCC$\_$Ex matrix is just one of multiple as mentioned, to assemble a total training matrix to feed train the classifier all matrices are assembled into one big training matrix. This matrix can be seen below in \eqref{eq:AllMatrix}. 
+The matrix consists of three sub-matrices: one for each of the intensities acquired as explained in \secref{sec:M:dataAcquisition}. The naming of the matrix is explained as $AllInt$ denotes all intensities, $CC$ denotes the CC feature and $Ex$ denotes the extension movement. Similar matrices were constructed for all other features for all movements named in the same fashion as the AllIntCC$\_$Ex matrix. All these matrices were assembled into one large training matrix, $TM$, in a five-dimensional feature space as seen below in \eqref{eq:AllMatrix}. 
 
 
 \small \begin{equation} \label{eq:AllMatrix}
-\begin{bmatrix} 
+TM=\begin{bmatrix} 
 \ AllIntCC\_Ex, AllIntSMAV\_Ex, AllIntSMADR\_Ex, AllIntMADN\_Ex, AllIntWL\_Ex \\
 \ AllIntCC\_Fl, AllIntSMAV\_Fl, AllIntSMADR\_Fl, AllIntMADN\_Fl, AllIntWL\_Fl \\
 \ AllIntCC\_Rd, AllIntSMAV\_Rd, AllIntSMADR\_Rd, AllIntMADN\_Rd, AllIntWL\_Rd \\
@@ -42,6 +41,7 @@ The AllIntCC$\_$Ex matrix is just one of multiple as mentioned, to assemble a to
 \end{equation}
 
 \normalsize
-The classifier is trained, by fitting the matrix presented in \eqref{eq:AllMatrix} with labels for each of the movements, making it a supervised learning method. The classifier thereby forms seven classes, one for each of the movement, with discriminative decision boundaries separating them. For calculating the real-time use of classification outcome and confidence scores in user training and performance test as intended, the predict function in MATLAB has been used. The function is continuously evaluating each sample to the different movement clusters in the five dimensional feature space, as theory explains in \secref{sec:BG:classification}. Hereby the sample is assigned to the cluster (movement) it is most likely to belong to based on the training data. The Predict function also calculates the probability membership for the sample to all classes giving an idea of how sure the classifier is and thereby indicating the correctness of the movement performed. 
+The classifier was trained by fitting the matrix presented in \eqref{eq:AllMatrix} with labels for each of the movements, making it a supervised learning method. The classifier thereby formed seven classes, one for each of the movements, with discriminative decision boundaries separating them. For calculating the real-time use of classification outcome and confidence scores in user training and performance test as intended, the predict function in MATLAB was used. The function was continuously evaluating each feature value to the different movement classes in the five dimensional feature space. Thus, the feature values were assigned to the movement class they were most likely to belong to based on the training data. The predict function also calculated the probability membership for the feature values to all classes giving an idea of how confident the classifier was on deciding a certain movement class and thereby indicating the correctness of the movement performed. \\ 
+The classifier was only used to decide upon which movement was performed, thus not used in performing proportional control. For this purpose linear regression models were used. 
 
 
