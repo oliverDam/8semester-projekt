@@ -1,17 +1,12 @@
-
-\subsection{Movement Intensity Control} \label{sub:M:regression}
-
-To get a way of measuring the intensity of a performed movement a regression based intensity control has been implemented. 
-
-
-We have six trained regressors - none for rest 
-Classifier choses which classifier to activate 
- 
-
-
+\subsection{Proportional Control} \label{sub:M:regression}
+To obtain proportional control linear regression models, regressors, for each movement were made. For this purpose multivariate linear regression was used, as explained in \secref{sec:BG:linearRegressionMethods}. To fit a regressor dependent and independent variables were needed. The independent variables were set as MAV features extracted from the raw EMG data from the data acquisition as explained in \secref{sec:M:dataAcquisition}. To ensure that the regressor did not produce an output during rest, the MAV features extracted from the raw EMG from a resting position were included as independent variables in each regressor. An example of the independent variables used to fit the regressor for the extension movement is seen in \eqref{eq:q:segMatrix}.
 
 \begin{equation} \label{eq:segMatrix}
-AllIntMAVEx=\begin{bmatrix} 
+AllIntMAV\_Ex=\begin{bmatrix}
+\begin{bmatrix}
+\ MAVRest_{1,1}, MAVRest_{1,2} \cdots MAVRest_{1,8} \\ 
+\ \vdots \qquad \qquad \qquad \ddots \qquad \qquad \qquad \vdots \\
+\ MAVRest_{n,1}, MAVRest_{n,2}  \cdots MAVRest_{n,8} \\ \end{bmatrix} \\
 \begin{bmatrix}
 \ MAVExtension40_{1,1}, MAVExtension40_{1,2} \cdots MAVExtension40_{1,8} \\ 
 \ \vdots \qquad \qquad \qquad \ddots \qquad \qquad \qquad \vdots \\
@@ -26,3 +21,32 @@ AllIntMAVEx=\begin{bmatrix}
 \ MAVExtension70_{n,1}, MAVExtension70_{n,2} \cdots MAVExtension70_{n,8} \\ \end{bmatrix} \\
 \end{bmatrix}
 \end{equation}
+
+The matrix contains three sub-matrices consisting of $n$ feature values across all eight channels for the three contraction levels: 40 \%, 50 \% and 70 \% respectively. The naming of the matrix is explained as that $AllInt$ denotes all intensities, $MAV$ denotes the MAV feature and $Ex$ denotes the extension movement. The independent variables matrices used to fit the regressors for the other movements were named in the same fashion. The purpose of using data from several contraction levels was to ensure proportional control. \\ 
+The dependent variables were similar to the independent variables. However, only a single output per window was desired. Therefore the mean of the feature values extracted from a window was calculated and scaled according to the MVC. The MVC was set as reference value of 1. The dependent variables corresponding to rest were set as 0. Thus, the dependent variables used to fit the regressor was a vector. An example of the dependent variables used to fit the regressor for the extension movement is seen in \eqref{eq:segMatrixScaled}
+
+\begin{equation} \label{eq:segMatrixScaled}
+AllIntMAV\_ExScaled=\begin{bmatrix} 
+\begin{bmatrix}
+\ 0_{1,1} \\ 
+\ \vdots \\
+\ 0_{n,1}\\ \end{bmatrix} \\
+\begin{bmatrix}
+\ MAVExtension40Scaled_{1,1} \\ 
+\ \vdots \\
+\ MAVExtension40Scaled_{n,1}\\ \end{bmatrix} \\
+\begin{bmatrix} 
+\ MAVExtension50Scaled_{1,1} \\
+\ \vdots \\
+\ MAVExtension50Scaled_{n,1} \\ \end{bmatrix} \\
+\begin{bmatrix} 
+\ MAVExtension70Scaled_{1,1} \\
+\ \vdots \\
+\ MAVExtension70Scaled_{n,1}\\ \end{bmatrix} \\
+\end{bmatrix}
+\end{equation}
+
+The output of the regressor would then be larger the more forceful a contraction the subject produced and vice versa. The $fitlm$ function in MATLAB was used to fit a regressor with the independent variables from \eqref{eq:segMatrix} and dependent variables from \eqref{eq:segMatrixScaled} as input. A total of six regressors were made; one for each movement used in the experiment. \\
+The use of the regressors in the control system was that the classifier decided upon which movement was performed, and the output from the regressor fitted for that movement was then used for proportional control. 
+
+
