@@ -25,7 +25,13 @@ Each target was presented by an area with a center and an outer circle. Targets 
 
 Subjects had to reach the targets inner circle with the cursor dot and expand or decrease the red area of the cursor to reach a size close to that of the target. A moderate size threshold had been implemented to make it possible to reach targets, without a 100\% accuracy of control. If a subject reached a target, the cursor would change color from red to green, and thus the subject withholds this position for a 1 second dwell the cursor changed to blue, and a bell chime will sound to indicate that the target was reached. The cursor position was reset to the center of the grid area and the color of the cursor would revert back to red. If a target was not reached within 15 seconds the current target would disappear, a new target would be shown and the cursor position would be set to the center of the grid area. The approach of resetting the cursor position after each target is to equalize the path for every subject. 
 
-As mentioned earlier multiple performance metrics was recorded during the target reaching test. One of these measures were throughput which depend on the index of difficulty for the targets, as stated in \secref{sub:BG:fitts}. The ID was calculated for all targets in the 3-dimensional target space shown on INDSÆT FIGUR. 
+As mentioned earlier multiple performance metrics was recorded during the target reaching test. One of these measures were throughput which depend on the index of difficulty for the targets, as stated in \secref{sub:BG:fitts}. The ID was calculated for all targets in the 3-dimensional target space shown on \figref{fig:alltargets}. 
+
+\begin{figure}[H] 
+	\includegraphics[width=0.7\textwidth]{figures/pMethods/DotsToReach}
+	\caption{The implemented interface for the modified Fitts' Law task were all 16 targets to be reached are shown. Here it is seen that the smaller center circle has the same width in all targets. Furthermore the three different target sizes are shown.}
+	\label{fig:alltargets}
+\end{figure}
 
 
 The configuration of targets in the test resulted in 8 combinations of width and distance. The smaller circle has the same width in each target thereby possessing the same area in which the cursor center has to be within. The index of difficulty for the targets used in the modified Fitts' law test can be seen in \tabref{tab:M:ID}
