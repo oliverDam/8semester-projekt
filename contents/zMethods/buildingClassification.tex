@@ -27,8 +27,8 @@ AllIntCC\_Ex=\begin{bmatrix}
 
 The matrix consists of three sub-matrices: one for each of the intensities acquired as explained in \secref{sec:M:dataAcquisition}. The naming of the matrix is explained as that $AllInt$ denotes all intensities, $CC$ denotes the CC feature and $Ex$ denotes the extension movement. Similar matrices were constructed for all other features for all movements named in the same fashion as the AllIntCC$\_$Ex matrix. All these matrices were assembled into one large training matrix, $TM$, in a five-dimensional feature space as seen below in \eqref{eq:AllMatrix}. 
 
-
-\small \begin{equation} \label{eq:AllMatrix}
+\begin{footnotesize}
+ \begin{equation} \label{eq:AllMatrix}
 TM=\begin{bmatrix} 
 \ AllIntCC\_Ex, AllIntSMAV\_Ex, AllIntSMADR\_Ex, AllIntMADN\_Ex, AllIntWL\_Ex \\
 \ AllIntCC\_Fl, AllIntSMAV\_Fl, AllIntSMADR\_Fl, AllIntMADN\_Fl, AllIntWL\_Fl \\
@@ -39,8 +39,8 @@ TM=\begin{bmatrix}
 \ AllIntCC\_Re, AllIntSMAV\_Re, AllIntSMADR\_Re, AllIntMADN\_Re, AllIntWL\_Re \\
 \end{bmatrix}
 \end{equation}
+\end{footnotesize}
 
-\normalsize
 The classifier was trained by fitting the matrix presented in \eqref{eq:AllMatrix} with labels for each of the movements, making it a supervised learning method. The classifier thereby formed seven classes, one for each of the movements, with discriminative decision boundaries separating them. For calculating the real-time use of classification outcome and confidence scores in user training and performance test as intended, the predict function in MATLAB was used. The function was continuously evaluating each feature value to the different movement classes in the five dimensional feature space. Thus, the feature values were assigned to the movement class they were most likely to belong to based on the training data. The predict function also calculated the probability membership for the feature values to all classes giving an idea of how confident the classifier was on deciding a certain movement class and thereby indicating the correctness of the movement performed. \\ 
 The classifier was only used to decide upon which movement was performed, thus not used in performing proportional control. For this purpose linear regression models were used. 
 
