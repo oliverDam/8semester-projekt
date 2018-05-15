@@ -53,7 +53,7 @@ $X_i[n]$ is the $n^{th}$ normalized data point from channel $i$. When calculatin
 Calculating CC can prove rather demanding in computational power due to the series og multiplication operations. Therefore Donovan et al. \cite{Donovan2017} proposed introducing a mean absolute difference-based feature of lower computational complexity which still characterizes the spatial relationship between channels. The MAD feature is normalized in the same way as CC, making up the MADN feature calculated as: 
 
 \begin{equation} \label{eq:MADN}
-MADN_i=\frac{\sum_{n=1}^{ws}|X_i[n]-X_{i+1}[n]|}{\sum_{n=1}^{ws}X_i[n]^2}=\frac{\sum_{n=1}^{ws}|X_i[n]-X_{i+1}[n]|}{ws}
+MADN_i=\frac{\sum_{n=1}^{ws}|X_i[n]-X_{i+1}[n]|}{ws}
 \end{equation}
 
 If the normalization of the signal proves too demanding the feature can be calculated on the raw EMG-signal without the normalization. This makes up the MADR feature, calculated as:
@@ -78,4 +78,7 @@ WL_i=\sum_{n=1}^{N-1}|x_{i+1}[n]-x_i[n]|
 \end{equation}
 
 WL is a measure of the signal complexity by calculating the cumulative length for each channel \cite{Phiny2012}.
+
+
+
 
