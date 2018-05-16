@@ -1,10 +1,10 @@
 
 %fitts metrics across groups, subjects and sessions
-In this chapter the results processed from collected data will be presented. All data processing have been done in accordance to earlier introduced theory and implementations of methods described in \chapref{chap:Background} and \chapref{chap:Methods} respectively. All data processing have been compiled using MATLAB.
+In this chapter the results processed from collected data will be presented. All data processing have been done in accordance to earlier introduced theory and implementations of methods described in \chapref{chap:Background} and \chapref{chap:Methods} respectively. The statistic results have been computed through a Friedman test, since the data proved to be non-parametric. Then a Tukey-Kramer test were done to correct for the problem of multiple comparison. All data processing have been compiled using MATLAB.
 
 
 \section{Fitts' Law results} \label{sec:R:fitts}
-This section will present the results acquired from the Fitts' Law target reaching test described in \secref{sec:M:fittsLaw}. The test had five metrics which each express a parameter of subjects performance. Subjects were divided into two groups, one test group which received continuous classifications scores during user training, and a control group which received binary classification scores during user training. The results have been computed through a Friedman test, since the data proved to be non-parametric. Then a Tukey-Kramer test were done to correct for the problem of multiple comparison. The results have been plotted for each metric over all four sessions, with mean and standard deviations.
+This section will present the results acquired from the Fitts' Law target reaching test described in \secref{sec:M:fittsLaw}. The test had five metrics which each express a parameter of subjects performance. Subjects were divided into two groups, one test group which received continuous classifications scores during user training, and a control group which received binary classification scores during user training. The results have been plotted for each metric over all four sessions, with mean and standard deviations.
  
 
 \subsection{Between test and control group}
@@ -29,7 +29,7 @@ The aim of using the Fitts' Law target reaching test were to apply a method to q
 
 \begin{figure}[H] 
 	\centering
-	\subfigure[Throughput metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups.]
+	\subfigure[Throughput metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).]
 	{\includegraphics[width=.49\textwidth]{figures/xWesulds/Throughput}}
 	\subfigure[Path efficiency metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).]
 	{\includegraphics[width=.49\textwidth]{figures/xWesulds/PathEfficiency}}  
@@ -53,7 +53,7 @@ The aim of using the Fitts' Law target reaching test were to apply a method to q
 
 \begin{figure}[H] 
 	\centering
-	\subfigure[Overshoot metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups.]
+	\subfigure[Overshoot metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).]
 	{\includegraphics[width=.49\textwidth]{figures/xWesulds/Overshoot}}
 	\subfigure[Stopping distance metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).]
 	{\includegraphics[width=.49\textwidth]{figures/xWesulds/StoppingDistance}}  

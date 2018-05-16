@@ -73,11 +73,11 @@
 
 %\input{contents/statusText.tex}
 %\chapter{Introduction} \label{chap:Introduction}
-%
+
 %\input{contents/aIntroduction/introduction.tex}
-%
+
 \chapter{Background} \label{chap:Background}
-%
+
 \input{contents/bBackground/intro.tex}
 \input{contents/bBackground/anatomy.tex}
 \input{contents/bBackground/EMG.tex}
@@ -89,8 +89,8 @@
 \input{contents/bBackground/Fitts_Law.tex}
 \input{contents/bBackground/separability.tex}
 %\input{contents/bBackground/statistic.tex}
-%
-%
+
+
 \chapter{Methods} \label{chap:Methods}
 \input{contents/zMethods/StudyDesign.tex}
 \input{contents/zMethods/dataAcquisition.tex}
@@ -99,28 +99,36 @@
 \input{contents/zMethods/regression.tex}
 \input{contents/zMethods/usertraining.tex}
 \input{contents/zMethods/fittsLaw.tex}
-%
-%
+
+
 \chapter{Results} \label{chap:Results}
-%
-%\chapter{Discussion} \label{chap:Discussion}
-%
-%\chapter{Conclusion} \label{chap:Conclusion}
-%
-%
-%
-%
+\input{contents/cResults/fittsLawResults.tex}
+\input{contents/cResults/userTrainingResults.tex}
+\input{contents/cResults/dataSeparabilityResults.tex}
+
+\chapter{Discussion} \label{chap:Discussion}
+%\input{contents/cResults/discussion.tex}
+
+\chapter{Conclusion} \label{chap:Conclusion}
+%\input{contents/cResults/conclusion.tex}
+
+
+
+\clearpage
 \begin{multicols}{2}
-%	
+	
 \urlstyle{same}
 \printbibliography
-%\cleardoublepage
+\clearpage
 \end{multicols}
-%
+
+
 \cleardoublepage
 % BILAG
 \begin{appendices}
+	\chapter{Appendices}
 \input{contents/zMethods/study_protocol.tex}
+\clearpage
 \input{contents/zMethods/study_protocol_checklist.tex}
 \end{appendices}
 
