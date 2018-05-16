@@ -2,6 +2,7 @@
 
 
 In order to use the acquired EMG-signal in myoelectric prosthesis control, it first has to be processed, which is referred to as pre-processing, as it is a processing procedure that is done before further processing is performed. Since the acquisition and most processing is done in the MYB before Bluetooth transmission, further processing of the signal is moderate. In myoelectric prosthesis control several features are extracted from each electrode-channel for use in control, instead of using the raw EMG-signal. Thus, the amount of information given to the control system is increased compared to only providing the raw EMG-signal to the control system. The following two sections will briefly describe theory behind filtering and feature extraction in relation to this project. 
+As described in \secref{sub:BG:MYB} the MYB has some build-in degree of signal filtering. Data received from the MYB is therefore not \textit{raw} as in a completely untouched EMG signal. However, the signals received from the MYB will from this point on be described as the raw EMG signal, since the EMG signal has not been processed by any of the implemented filtering specific for this study.
 
 
 \subsection{Filtering} \label{sub:BG:filtering} %\label{sub:filt}
