@@ -1,42 +1,69 @@
-
+\begin{multicols}{2}
 \subsubsection*{Performance Evaluation} \label{sec:R:fitts}
 This section will present the results acquired from the Fitts' Law target reaching test. The test had five metrics which each express a parameter of subjects performance. Subjects were divided into two groups, one test group which received continuous classifications scores during user training, and a control group which received binary classification scores during user training. The results have been plotted for each metric over all four sessions, with mean and standard deviations.
+\end{multicols}
+
+
+
 
 %throughput
 \begin{figure}[H] 
-	\includegraphics[width=0.3\textwidth]{figures/xWesulds/Throughput}
-	\caption{Throughput metric for the Fitts' Law test between the test and control group.}
-	\label{fig:TPresult}
+	\subfigure[Throughput metric for the Fitts' Law test between the test and control group.]
+	{\includegraphics[width=.42\textwidth]{figures/xWesulds/Throughput}} 
 \end{figure}
 
-%Path Efficiency
-\begin{figure}[H] 
-	\includegraphics[width=0.3\textwidth]{figures/xWesulds/PathEfficiency}
-	\caption{Path efficiency metric for the Fitts' Law test between the test and control group.}
-	\label{fig:PEresult}
-\end{figure} 
 
-overshoot
 \begin{figure}[H] 
-	\includegraphics[width=0.3\textwidth]{figures/xWesulds/Overshoot}
-	\caption{Overshoot metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).}
-	\label{fig:OSresult}
-\end{figure} 
+	\centering
+	\subfigure[Path efficiency metric for the Fitts' Law test between the test and control group.]
+	{\includegraphics[width=.42\textwidth]{figures/xWesulds/PathEfficiency}} 
+	\subfigure[Overshoot metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).]
+	{\includegraphics[width=.42\textwidth]{figures/xWesulds/Overshoot}}  
+
+\end{figure}
+
+
+\begin{figure}[H] 
+	\centering
+	\subfigure[Stopping distance metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).]
+	{\includegraphics[width=.42\textwidth]{figures/xWesulds/StoppingDistance}} 
+	\subfigure[Completion rate metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).]
+	{\includegraphics[width=.42\textwidth]{figures/xWesulds/CompletionRate}}  
+
+\end{figure}
+
+
+
+%
+%%Path Efficiency
+%\begin{figure}[H] 
+%	\includegraphics[width=0.3\textwidth]{figures/xWesulds/PathEfficiency}
+%	\caption{Path efficiency metric for the Fitts' Law test between the test and control group.}
+%	\label{fig:PEresult}
+%\end{figure} 
+%
+%overshoot
+%\begin{figure}[H] 
+%	\includegraphics[width=0.3\textwidth]{figures/xWesulds/Overshoot}
+%	\caption{Overshoot metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).}
+%	\label{fig:OSresult}
+%\end{figure} 
 
 %stopping distance
-\begin{figure}[H] 
-	\includegraphics[width=0.3\textwidth]{figures/xWesulds/StoppingDistance}
-	\caption{Stopping distance metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).}
-	\label{fig:SDresult}
-\end{figure} 
-
-%completion rate
-\begin{figure}[H] 
-	\includegraphics[width=0.3\textwidth]{figures/xWesulds/CompletionRate}
-	\caption{Completion rate metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).}
-	\label{fig:CRresult}
-\end{figure} 
-
+%\begin{figure}[H] 
+%	\includegraphics[width=0.3\textwidth]{figures/xWesulds/StoppingDistance}
+%	\caption{Stopping distance metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).}
+%	\label{fig:SDresult}
+%\end{figure} 
+%
+%%completion rate
+%\begin{figure}[H] 
+%	\includegraphics[width=0.3\textwidth]{figures/xWesulds/CompletionRate}
+%	\caption{Completion rate metric for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).}
+%	\label{fig:CRresult}
+%\end{figure} 
+\begin{multicols}{2}
+	
 The Fitts' Law results did not show any significant change over the three sessions for any of the five test metrics, with all comparisons within both the test and control group resulting in p-values above $0.05$, with a Tukey-Kramer correction yielding p-values above $0.05$ for all comparisons within both groups. At the same time there was no significant difference to be found between the two groups performance in any sessions ($p > 0.05$), meaning neither of them performed significantly better than the other group in any of the sessions.
 
 \subsubsection*{User Training Evaluation} \label{sec:R:userTraining}
@@ -55,3 +82,4 @@ In this section results from the data acquisition will be presented. The data us
 For both groups the mean distance between the cluster centroids were calculated. There was found no significant difference in the development of cluster distances between the groups ($p > 0.05$). Likewise, the change in between cluster distances over the three sessions were tested showing no significant difference ($p > 0.05$).
 
 The mean distance from data points to the cluster centroid was calculated. This showed no significant difference for the test group ($p > 0.05$), but a significant difference was found for the control group ($p < 0.05$). The Tukey-Kramer correction showed the significant difference was between session one and three ($p < 0.05$), where the mean for session one was $502.02 \pm 274.88$, and session three was $323.43 \pm 171.13$. Results show the control group achieved a significant improvement of within cluster distances compared to the test group ($p < 0.05$). The third session showed the test group had a mean distance within clusters of $584.34 \pm 250.02$, while the control group had $323.43 \pm 171.13$. 
+\end{multicols}

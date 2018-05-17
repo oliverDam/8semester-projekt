@@ -134,7 +134,8 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	%		\include{content/aAbstract}
-	\textbf{\textit{Abstract ---} \input{contents/aIntroduction/abstract.tex}}
+	\textbf{\textit{Abstract} 
+		\input{contents/aIntroduction/abstract.tex}}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
@@ -157,21 +158,26 @@
 	\subsubsection*{Feature Extraction}
 	\input{contents/zxPaper/feature_ex.tex}
 	
-	\subsubsection*{Confidence Scores}
-	\input{contents/zxPaper/conf.tex}
+	\subsubsection*{Confidence Scores} 
+	\input{contents/zxPaper/conf.tex} 
 	
 	\subsubsection*{Proportional Control}
 	\input{contents/zxPaper/control.tex}
 	
-		\subsubsection*{User Training}
+	\subsubsection*{User Training}
 	\input{contents/zxPaper/user_training.tex}
 	
 	\subsubsection*{Performance Test}
 
 	\input{contents/zxPaper/performancetest.tex}
 	
+	\end{multicols}
+		
 	\section*{RESULTS}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Stuff to come
+	\input{contents/zxPaper/ResultsPaper.tex}
+	
+	
+	\begin{multicols}{2}
 	\section*{DISCUSSION}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\input{contents/cResults/discussion.tex}
@@ -186,6 +192,13 @@ Stuff to come
 	\subsection*{ACKNOWLEDGMENT}
 	
 	The authors would like to thank supervisors Strahinja Dosen, Jakob Lund Dideriksen and Lotte N.S. Andreasen Struijk, and the School of Medicine and Health at Aalborg University for providing constructive feedback, equipment and the facilities to complete this study. Additionally the authors are  very thankful for all the voluntarily participating test subjects.
+
+
+\renewcommand*{\bibfont}{\footnotesize}
+	\urlstyle{same}
+	\printbibliography
+	
+	
 	
 	%			\bibitem{citeKey} author, title, publisher , volume, year
 	
