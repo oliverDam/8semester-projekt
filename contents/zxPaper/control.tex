@@ -1,4 +1,4 @@
-\subsection{Control} \label{sub:P:control}
+%\subsection{Control} \label{sub:P:control}
 The LDA classifier described in \subref{sub:P:confidencescores} was used in the control scheme. To obtain more smooth control, the class with the highest average likelihood based on features from the previous three segments was chosen as output class. \\
 For proportional control multivariate linear regression models were utilized. One regression model was trained for each movement class (six in total), where the independent variables were Mean Absolute Values (MAV) extracted from each segment in each channel of the MYB. The dependent variables were set as the averaged EMG signal across all channels normalized with the MVC as a reference. Thus, the proportional output value was a single value between 0 and 1. The calculation was as follows: 
 
