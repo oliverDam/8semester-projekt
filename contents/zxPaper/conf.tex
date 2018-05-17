@@ -8,7 +8,7 @@ The theoretical derivation of confidence scores from a LDA classifier is based o
 	P(\omega_{j}|x) = \frac{P(x|\omega_{j})P(\omega_{j})}{P(x)}
 \end{equation}
 \vspace{-0.02cm}
-Where $P(x|\omega_{j}$ is the class conditional probability, the likelihood that a sample from class $j$ occurs, $P(\omega_{j})$ is the prior probability, the probability of class $j$ occurring, and $P(x)$ is the normalization factor that ensures the probabilities of all class sum to 1. As $P(x)$ is common for all classes, it can be excluded, which leaves the following function:
+Where $P(x|\omega_{j})$ is the class conditional probability, the likelihood that a sample from class $j$ occurs, $P(\omega_{j})$ is the prior probability, the probability of class $j$ occurring, and $P(x)$ is the normalization factor that ensures the probabilities of all class sum to 1. As $P(x)$ is common for all classes, it can be excluded, which leaves the following function:
 \vspace{-0.1cm}
 \begin{equation} \label{eq:bayeslda}
 	g_{j}(x) = P(x|\omega_{j})P(\omega_{j})
