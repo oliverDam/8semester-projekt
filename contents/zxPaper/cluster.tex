@@ -1,9 +1,9 @@
-\subsection{Cluster dispersion and separability}
+%\subsection{Cluster dispersion and separability}
 The EMG-signal for each movement class acquired from the subjects forms clusters of multidimensional data points. The lower the dispersion of the individual movement class clusters is, the more distinguishable the movements are, and the classifier will recognize the movement classes with higher accuracy. Additionally, a higher distance between cluster centroids will facilitate a higher classification accuracy further. This section describes how to calculate the cluster dispersion and separability of clusters. \\
 To calculate cluster dispersion, the centroid of multidimensional clusters must be calculated as in:
 
-\begin{equation} \label{eq:centroid}
-C = \Bigg[ \frac{[x_1+x_2 +~...~+ x_n],[y_1+y_2 +~...~+ y_n] ,~...~,[k_1+k_2 +~...~k_n]}{N} \Bigg]
+ \begin{equation} \label{eq:centroid}
+C = \Bigg[ \frac{\sum\limits_{n=1}^{N}x_{n},y_{n},~...~k_{n}}{N} \Bigg]
 \end{equation}
 
 Where $C$ is the centroid, $n$ is the number of data point in a dimension, $N$ is the total number of data points in a dimension and $k$ is the number of dimensions. To calculate cluster dispersion, the Euclidean distance (ED) from data point $p$ to the corresponding cluster $q$ is computed: %The ED is the length of the a line segment connecting points, in this case in form of data point $p$ and cluster centroid $q$, and is calculated as:
