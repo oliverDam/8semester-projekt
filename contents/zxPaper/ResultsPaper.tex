@@ -2,33 +2,28 @@
 Statistics were applied to evaluate improvements in the results obtained in the performance test, user training and data clustering. A Friedmans test was used for multiple comparison and a Tukey-Kramer correction was conducted when detecting an effect. For comparison between groups in each session, a Mann-Whitney U test was applied. 
 
 \subsubsection*{Performance Evaluation} \label{sec:R:fitts}
-This section presents the results acquired from the Fitts' Law target reaching test. The test had five measures which each expresses a parameter of subjects' performance. Subjects were divided into two groups, one test group which received continuous classifications scores during user training, and a control group which received single class classification scores during user training. The plotted mean and standard deviations of each measure in the performance test for session can be seen in /figref{thereIsnoFigRefYet}
+This section presents the results acquired from the Fitts' Law target reaching test. The test had five measures which each expresses a parameter of subjects' performance. Subjects were divided into two groups, one test group which received exact class confidence scores during user training, and a control group which only received a single class confidence score. The plotted mean and standard deviations of each measure in the performance test for session can be seen in \figref{thereIsnoFigRefYet}.
 
 \end{multicols}
 
 %throughput
 \begin{figure}[H] 
-	\subfigure[Throughput measure for the Fitts' Law test between the test and control group.]
-	{\includegraphics[width=.42\textwidth]{figures/xWesulds/Throughput}} 
-\end{figure}
-
-
-\begin{figure}[H] 
-	\centering
-	\subfigure[Path efficiency measure for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).]
-	{\includegraphics[width=.42\textwidth]{figures/xWesulds/PathEfficiency}} 
-	\subfigure[Overshoot measure for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).]
-	{\includegraphics[width=.42\textwidth]{figures/xWesulds/Overshoot}}  
-
-\end{figure}
-
-
-\begin{figure}[H] 
-	\centering
-	\subfigure[Stopping distance measure for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).]
-	{\includegraphics[width=.42\textwidth]{figures/xWesulds/StoppingDistance}} 
-	\subfigure[Completion rate measure for the Fitts' Law test between the test and control group. There is no significant difference between the groups ($p > 0.05$).]
-	{\includegraphics[width=.42\textwidth]{figures/xWesulds/CompletionRate}}  
+	\subfigure[]
+	{\includegraphics[width=.33\textwidth]{figures/xWesulds/Throughput}} 
+	\hspace{-0.5cm}
+	\subfigure[]
+	{\includegraphics[width=.33\textwidth]{figures/xWesulds/PathEfficiency}} 
+	\hspace{-0.5cm}
+	\subfigure[]
+	{\includegraphics[width=.33\textwidth]{figures/xWesulds/Overshoot}}  
+	\subfigure[]
+	{\includegraphics[width=.33\textwidth]{figures/xWesulds/StoppingDistance}} 
+	\hspace{-0.5cm}
+	\subfigure[]
+	{\includegraphics[width=.33\textwidth]{figures/xWesulds/CompletionRate}}  
+	\hspace{-0.5cm}
+	\caption{Figure illustrating the five performance measures; \textit{ a) Throughput, b) Path efficiency, c) Overshoot, d) Stopping distance, e) Completion rate}, used for quantifying user performance across all four tests.  Test number 1 is the acquired baseline used for assessing group homogeneity and the following numbers indicate test after user training in each session. The red line indicates the progression of the test group and blue the control group.}
+	\label{thereIsnoFigRefYet}
 
 \end{figure}
 
@@ -68,12 +63,12 @@ The baseline performance test showed no difference between the two group, showin
 
 \subsubsection*{User Training Evaluation} \label{sec:R:userTraining}
 
-This section covers the results acquired from measurements taken during subjects user training sessions. During user training subjects were instructed to train movements in being performed such that the control system recognized the movement as the actually performed movement. During this training the number of times subjects correctly performed an instructed movement to the contraction interval shown in the training interface was recorded, and will be referred to at the number of repetitions. \\
+This section covers the results acquired from measurements obtained during user training sessions. During user training subjects were instructed to train movements in being performed such that the control system recognized the movement as the actually performed movement. During this training the number of times subjects correctly performed an instructed movement to the contraction interval shown in the training interface was recorded, and will be referred to at the number of repetitions. \\
 No significant difference in the total number of repetitions was found between sessions of either group ($p > 0.05$). When comparing the total number of repetitions of each session between groups accordingly, no significant difference were found either ($p > 0.05$). \\ %During user training the total completion rate is defined by the number of times a subject correctly performed a movement and held the contraction bar at the given interval for one second. A p-value of $p > 0.05$ was found for both groups in the Friedmans test comparing the performance over the three sessions, and Tukey-Kramer correction did not show any significant difference between any of the sessions ($p > 0.05$), which means there was no significant development of performance in the training for any group. 
 Similar results were yielded for both groups when comparing the subjects' ability to reach the different contraction levels between sessions ($p > 0.05$).\\
 %Friedmans test was applied to examine if there was a development in the ability to reach the different contraction levels within the three training sessions. A p-value of $p > 0.05$ was found for both groups, with the Tukey-Kramer correction yielding $p > 0.05$ for the comparison of the three sessions, meaning there was no change in ability to reach different intensities.
 No difference was found, when comparing the two groups' ability to reach different intensities during training, either ($p > 0.05$).
-Comparing the ability to reach different positions within the training showed no significant difference between the three sessions  for both groups ($p > 0.05$).\\ %, with the Tukey-Kramer correction resulting in $p > 0.05$ between all sessions for both the test and control group, meaning there was no development in ability to reach specific positions. 
+Comparing the ability to perform different movements during the training showed no significant difference between the three sessions  for both groups ($p > 0.05$).\\ %, with the Tukey-Kramer correction resulting in $p > 0.05$ between all sessions for both the test and control group, meaning there was no development in ability to reach specific positions. 
 A significant difference ($p < 0.05$) was found between the test and control groups ability to reach the closed hand movement, with a mean of $26.8 \pm13.5$ number of repetitions for the test group and $38 \pm12.2$ for the control group. No significant difference was found for any of the other movements when comparing the two groups ($p > 0.05$).
 
 \subsubsection*{Cluster Dispersion and Separability Results}
