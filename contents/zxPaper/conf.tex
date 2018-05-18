@@ -8,36 +8,36 @@ The theoretical derivation of confidence scores from a LDA classifier is based o
 	P(\omega_{j}|x) = \frac{P(x|\omega_{j})P(\omega_{j})}{P(x)}
 \end{equation}
 \vspace{-0.02cm}
-Where $P(x|\omega_{j})$ is the class conditional probability, the likelihood that a sample from class $j$ occurs, $P(\omega_{j})$ is the prior probability, the probability of class $j$ occurring, and $P(x)$ is the normalization factor that ensures the probabilities of all class sum to 1. As $P(x)$ is common for all classes, it can be excluded, which leaves the following function:
+\noindent Where $P(x|\omega_{j})$ is the class conditional probability, the likelihood that a sample from class $j$ occurs, $P(\omega_{j})$ is the prior probability, the probability of class $j$ occurring, and $P(x)$ is the normalization factor that ensures the probabilities of all class sum to 1. As $P(x)$ is common for all classes, it can be excluded, which leaves the following function:
 \vspace{-0.1cm}
 \begin{equation} \label{eq:bayeslda}
 	g_{j}(x) = P(x|\omega_{j})P(\omega_{j})
 \end{equation} 
 \vspace{-0.02cm}
-An assumption of LDA is each class belongs to a Gaussian distribution. Thus, the class conditional probability can be written as the multivariate normal distribution:
+\noindent An assumption of LDA is each class belongs to a Gaussian distribution. Thus, the class conditional probability can be written as the multivariate normal distribution:
 \vspace{-0.1cm}
 \begin{equation}
 P(x|\omega_{j}) = \frac{1}{|\varSigma_{j}|^{1/2}}(\frac{1}{\sqrt{2\pi}})^{d} ~~e^{-1/2} (x-\mu_{j})' ~\varSigma^{-1}_{j} (x-\mu_{j})
 \end{equation} 
 \vspace{-0.1cm}
-Where $\varSigma_{j}$ and $\mu_{j}$ are the covariance matrices and mean vector for class $j$ and $d$ is the number of dimensions. \\
+\noindent Where $\varSigma_{j}$ and $\mu_{j}$ are the covariance matrices and mean vector for class $j$ and $d$ is the number of dimensions. \\
 It can be assumed that all classes share the same covariance matrices $C$. $C_{j}$ can thus be replaced with the pooled covariance matrix $C$. Through taking the natural logarithm to remove constants, and through mathematical manipulation the function in \eqref{eq:bayeslda} can be written as:
 \vspace{-0.1cm}
 \begin{equation} 
 	g_{j}^{*}(x) = \mu_{j}\varSigma^{-1}x' - \frac{1}{2}\mu_{j}\varSigma^{-1}\mu'_{j} - ln(P(\omega_{j}))
 \end{equation}
 \vspace{-0.01cm}
-Which can be written as the linear discriminant classifier:
+\noindent Which can be written as the linear discriminant classifier:
 \vspace{-0.1cm}
 \begin{equation} \label{eq:ldclassifier}
 	g_{j}^{*}(x) = weight_{j}\cdot x' + bias_{j}
 \end{equation}
 \vspace{-0.1cm}
-The likelihoods obtained from \eqref{eq:ldclassifier} can be used to calculate the confidence score of a sample belonging to a class $j$. The natural logarithmic operation used to derive $g_{j}^{*}(x)$ transformed the function to the log domain. To calculate the confidence scores the function must be transformed back to the linear domain. Additionally, the class $j$ likelihood must be normalized regarding the sum of all class likelihoods, in order to be a value between 0 and 1, and results in the following calculation of confidence score:
+\noindent The likelihoods obtained from \eqref{eq:ldclassifier} can be used to calculate the confidence score of a sample belonging to a class $j$. The natural logarithmic operation used to derive $g_{j}^{*}(x)$ transformed the function to the log domain. To calculate the confidence scores the function must be transformed back to the linear domain. Additionally, the class $j$ likelihood must be normalized regarding the sum of all class likelihoods, in order to be a value between 0 and 1, and results in the following calculation of confidence score:
 \vspace{-0.02cm}
 \begin{equation}
 	CS_{k}(x) = \frac{e^{g^{*}_{j}(x)}}{\Sigma^{J}_{j=1}~e^{g^{*}_{j}(x)}}
 \end{equation}
 \vspace{-0.05cm}
-Where $CS_{k}(x)$ is the confidence score of a sample $x$ belonging to class $j$. The normalization operation was included to represent the class confidence score as a percentage of the sum of all class confidence scores, in order to have $CS_{k}(x)$ presented as a more intuitive number for the user.
+\noindent Where $CS_{k}(x)$ is the confidence score of a sample $x$ belonging to class $j$. The normalization operation was included to represent the class confidence score as a percentage of the sum of all class confidence scores, in order to have $CS_{k}(x)$ presented as a more intuitive number for the user.
 
