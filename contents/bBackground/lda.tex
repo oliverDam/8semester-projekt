@@ -6,12 +6,12 @@ For a myoelectric prosthesis to be able to distinguish between movements it need
 A linear classifier is a supervised classification method used to separate classes of data by linear decision boundaries. Each decision boundary is a hyperplane from which the distance to each feature value of a class and the center of the class is maximized. A decision boundary is defined as a linear combination of the feature values $x$ and is given as \cite{Duda2000}:
 
 \begin{equation}
-g(x) = w^tx +w_0
+g(x) = weight^tx +\omega_0
 \end{equation}
 
-where $w$ is a weight vector deciding the orientation of $g(x)$, and $w_0$ is a bias deciding the position of the hyperplane in relation to the origin. If $w_0 > 0$ the origin is on the positive side of the decision boundary, and if $w_0 < 0$ the origin is on the negative side. In the case of $w_0 = 0$ the decision boundary passes through origin. The distance from origin to the boundary is given as $\frac{w_0}{||w||}$. The position of the decision boundary is necessary to know to when separating features into regions. \cite{Duda2000}
+where the $weight$ is a vector deciding the orientation of $g(x)$, and $\omega_0$ is a bias deciding the position of the hyperplane in relation to the origin. If $\omega_0 > 0$ the origin is on the positive side of the decision boundary, and if $\omega_0 < 0$ the origin is on the negative side. In the case of $\omega_0 = 0$ the decision boundary passes through origin. The distance from origin to the boundary is given as $\frac{\omega_0}{||v||}$. The position of the decision boundary is necessary to know to when separating features into regions. \cite{Duda2000}
 
-In a two category case the decision rule for deciding classes is to decide class $C_1$ if $g(x) > 0$ and class $C_2$ if $g(x) < 0$. $g(x) = 0$ then defines the decision boundary that separates the features into two decision regions $R_1$ for $C_1$ and $R_2$ for $C_2$. The normal vector $v$ is orthogonal to any vector on the hyperplane, which is used to calculate the distance $r$ from feature values (x) to the decision boundary \cite{Duda2000}:
+In a two category case the decision rule for deciding classes is to decide class $\omega_1$ if $g(x) > 0$ and class $\omega_2$ if $g(x) < 0$. $g(x) = 0$ then defines the decision boundary that separates the features into two decision regions $R_1$ for $\omega_1$ and $R_2$ for $\omega_2$. The normal vector $v$ is orthogonal to any vector on the hyperplane, which is used to calculate the distance $r$ from feature values (x) to the decision boundary \cite{Duda2000}:
 
 \begin{equation} \label{eq:featureValueDistance}
 r = \frac{g(x)}{||v||}
@@ -30,7 +30,7 @@ The distance from origin and boundary to feature value (x) is needed to decide i
 When feature values are to be classified into more than two classes more decision boundaries are needed. This is a multicategory case in which $c$ numbers of boundaries are defined. When defining linear boundaries in this case any number can be chosen, but to minimize ambiguous decision regions the boundaries are defined by \cite{Duda2000}:
 
 \begin{equation} \label{eq:multicase}
-g_{i}(x) = w^{t}_{i}x_{i} +w_{i0} ~~~~~~~~~~~ i = 1,...,c,
+g_{i}(x) = \omega^{t}_{i}x_{i} +\omega_{i0} ~~~~~~~~~~~ i = 1,...,c,
 \end{equation}
 
 This equation follows the notation of the two-category case, with the addition of $i$ numbers of boundaries, feature values and biases. This type of classifier is called a linear machine, dividing the feature space into $c$ regions. A liner machine will be adopted as classification method in this project. Regions $R_i$ and $R_j$, that are connected is divided by a boundary hyperplane $H_{ij}$ defined by \cite{Duda2000}:
@@ -47,7 +47,7 @@ Often regions are contiguous and will have a single boundary to separate several
 	\label{fig:LMregions} 
 \end{figure}
 
-When the decision boundaries $g_i(w)$ have been calculated as in \eqref{eq:multicase}, the input feature values can be decided upon which class they belong to by calculating the distance to the decision boundary as in \eqref{eq:featureValueDistance}. 
+When the decision boundaries $g_i(\omega)$ have been calculated as in \eqref{eq:multicase}, the input feature values can be decided upon which class they belong to by calculating the distance to the decision boundary as in \eqref{eq:featureValueDistance}. 
 
 
 \subsection{Linear Discriminant Analysis} \label{sub:BG:LDA}
@@ -62,12 +62,12 @@ The proposed method of this study is to calculate confidence scores to use as a 
 
 \subsection{Classification confidence scores} \label{sub:BG:classificationConfidenceScores}
 As described, the additional reason for using LDA as control scheme is because it enables the calculation of confidence scores for the classes, which will be used in the user training, further described in \secref{sec:BG:userTraining} to improve the prosthesis control. The principle of calculating confidence scores for input data is the basis for this project. 
-Based on the classification of feature values by the linear classifier, confidence scores for the classes can be evaluated by computing the posterior probability of each class. Calculating the posterior probability is possible by knowing the likelihood $P(x|C_j)$ and the prior probability $P(C)$.
+Based on the classification of feature values by the linear classifier, confidence scores for the classes can be evaluated by computing the posterior probability of each class. Calculating the posterior probability is possible by knowing the likelihood $P(x|\omega_j)$ and the prior probability $P(\omega)$.
 %The likelihood is the conditional probability the feature value $x$ can appear in a certain class ($w_j$), while the prior probability $P(x)$, is the probability of a feature value appearing. %is this not always 100% in our case?
 The posterior probability for a class is a value between 0 and 1, and is calculated as follows:
 
 \begin{equation}
-P(C_j|x) = \frac{P(x|C_j)P(C)}{P(x)}
+P(\omega_j|x) = \frac{P(x|\omega_j)P(\omega)}{P(x)}
 \end{equation}
 
-where $C_j$ represents a class and x represents a feature vector. The posterior probability is given as the product of the class conditional probability, $P(x|C_j)$ and the prior probability $P(C)$ divided by a normalization term $P(x)$ that guaranties that the posterior probabilities for all classes sums to one. $P(x|C_j)$ is the probability of obtaining a feature value when selecting samples randomly from a class. $P(C)$ is the probability of a sample from a specific class appears in its correct class, before it have actually appeared. Summation of posterior probabilities for all classes will equal 1.
+where $\omega_j$ represents a class and x represents a feature vector. The posterior probability is given as the product of the class conditional probability, $P(x|\omega_j)$ and the prior probability $P(\omega)$ divided by a normalization term $P(x)$ that guaranties that the posterior probabilities for all classes sums to one. $P(x|\omega_j)$ is the probability of obtaining a feature value when selecting samples randomly from a class. $P(\omega)$ is the probability of a sample from a specific class appears in its correct class, before it have actually appeared. Summation of posterior probabilities for all classes will equal 1.
