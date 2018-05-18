@@ -1,9 +1,9 @@
 %\subsection{Control} \label{sub:P:control}
 The LDA classifier described in the previous section was used in the control scheme. To obtain more smooth control, the class with the highest average likelihood based on features from the previous three segments was chosen as output class. \\
 For proportional control multivariate linear regression models were utilized. One regression model was trained for each movement class (six in total), where the independent variables were Mean Absolute Values (MAV) extracted from each segment in each channel of the MYB. The dependent variables were set as the averaged EMG signal across all channels normalized with the MVC as a reference. Thus, the proportional output value was a single value between 0 and 1. The calculation was as follows: 
-\vspace{-0.1cm}
+\vspace{-0.2cm}
 \begin{equation} \label{eq:P:multiLinearRegression}
 \hat{Y} = \alpha + \beta_1 X_{1} + \beta_2 X_{2} + ... + \beta_i X_{i} + \epsilon_i
 \end{equation} 
-\vspace{-0.05cm}
+\vspace{-0.12cm}
 Where $i$ is the number of MYB channels, $\hat{Y}$ is the proportional control output, $X_{i}$ is the MAV feature of a segment in the $i^{th}$ channel, $\alpha$ is the regression intercept and $\beta$ is the regression slope. $\epsilon_{i}$ is the error term. Similarly as the classification control, the proportional control output was calculated as the average output from on the three previous segments to obtain smooth control. This control scheme was used in both the user training and the performance test.
