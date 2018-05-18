@@ -9,26 +9,26 @@ The theoretical derivation of confidence scores from a LDA classifier is based o
 \end{equation}
 \vspace{-0.02cm}
 \noindent Where $P(x|\omega_{j})$ is the class conditional probability, the likelihood that a sample from class $j$ occurs, $P(\omega_{j})$ is the prior probability, the probability of class $j$ occurring, and $P(x)$ is the normalization factor that ensures the probabilities of all class sum to 1. As $P(x)$ is common for all classes, it can be excluded, which leaves the following function:
-\vspace{-0.1cm}
+\vspace{-0.05cm}
 \begin{equation} \label{eq:bayeslda}
 	g_{j}(x) = P(x|\omega_{j})P(\omega_{j})
 \end{equation} 
 \vspace{-0.02cm}
 \noindent An assumption of LDA is each class belongs to a Gaussian distribution. Thus, the class conditional probability can be written as the multivariate normal distribution:
-\vspace{-0.1cm}
+\vspace{-0.05cm}
 \begin{equation}
 P(x|\omega_{j}) = \frac{1}{|\varSigma_{j}|^{1/2}}(\frac{1}{\sqrt{2\pi}})^{d} ~~e^{-1/2} (x-\mu_{j})' ~\varSigma^{-1}_{j} (x-\mu_{j})
 \end{equation} 
-\vspace{-0.1cm}
+\vspace{-0.05cm}
 \noindent Where $\varSigma_{j}$ and $\mu_{j}$ are the covariance matrices and mean vector for class $j$ and $d$ is the number of dimensions. \\
 It can be assumed that all classes share the same covariance matrices $C$. $C_{j}$ can thus be replaced with the pooled covariance matrix $C$. Through taking the natural logarithm to remove constants, and through mathematical manipulation the function in \eqref{eq:bayeslda} can be written as:
-\vspace{-0.1cm}
+\vspace{-0.05cm}
 \begin{equation} 
 	g_{j}^{*}(x) = \mu_{j}\varSigma^{-1}x' - \frac{1}{2}\mu_{j}\varSigma^{-1}\mu'_{j} - ln(P(\omega_{j}))
 \end{equation}
 \vspace{-0.01cm}
 \noindent Which can be written as the linear discriminant classifier:
-\vspace{-0.1cm}
+\vspace{-0.05cm}
 \begin{equation} \label{eq:ldclassifier}
 	g_{j}^{*}(x) = weight_{j}\cdot x' + bias_{j}
 \end{equation}
