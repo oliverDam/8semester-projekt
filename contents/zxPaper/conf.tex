@@ -1,6 +1,6 @@
 %\subsection{Confidence scores}
- 
-The theoretical derivation of confidence scores from a LDA classifier is based on a study by Scheme et al. \cite{Scheme2013}. The decision rule for LDA classification is based on deciding the class with the highest probability of having produced a given input sample. LDA classification is derived from Bayes principles \cite{Scheme2013a}, from which the Bayes theorem expresses that the posterior probability $P(\omega_{j}|x)$, the probability of sample $x$ belonging to class $j$, can be written as:
+As the application of confidence scores during user training is the main focus of this study, a brief derivation of confidence scores will be presented in this section. This theoretical derivation of confidence scores from a LDA classifier is based on a study by Scheme et al. \cite{Scheme2013}. \\
+The decision rule for LDA classification is based on deciding the class with the highest probability of having produced a given input sample. LDA classification is derived from Bayes principles \cite{Scheme2013a}, from which the Bayes theorem expresses that the posterior probability $P(\omega_{j}|x)$, the probability of sample $x$ belonging to class $j$, can be written as:
 
 \vspace{-0.7cm}
 
@@ -14,14 +14,14 @@ The theoretical derivation of confidence scores from a LDA classifier is based o
 	g_{j}(x) = P(x|\omega_{j})P(\omega_{j})
 \end{equation} 
 \vspace{-0.02cm}
-\noindent An assumption of LDA is each class belongs to a Gaussian distribution. Thus, the class conditional probability can be written as the multivariate normal distribution:
+\noindent An assumption of LDA is that each class belongs to a Gaussian distribution. Thus, the class conditional probability can be written as the multivariate normal distribution:
 \vspace{-0.05cm}
 \begin{equation}
 P(x|\omega_{j}) = \frac{1}{|\varSigma_{j}|^{1/2}}(\frac{1}{\sqrt{2\pi}})^{d} ~~e^{-1/2} (x-\mu_{j})' ~\varSigma^{-1}_{j} (x-\mu_{j})
 \end{equation} 
 \vspace{-0.05cm}
 \noindent Where $\varSigma_{j}$ and $\mu_{j}$ are the covariance matrices and mean vector for class $j$ and $d$ is the number of dimensions. \\
-It can be assumed that all classes share the same covariance matrices $C$. $C_{j}$ can thus be replaced with the pooled covariance matrix $C$. Through taking the natural logarithm to remove constants, and through mathematical manipulation the function in \eqref{eq:bayeslda} can be written as:
+It can be assumed that all classes share the same covariance matrices $\varSigma$. $\varSigma_{j}$ can thus be replaced with the common covariance matrix $\varSigma$. Through taking the natural logarithm to remove constants, and through mathematical manipulation the function in \eqref{eq:bayeslda} can be written as:
 \vspace{-0.05cm}
 \begin{equation} 
 	g_{j}^{*}(x) = \mu_{j}\varSigma^{-1}x' - \frac{1}{2}\mu_{j}\varSigma^{-1}\mu'_{j} - ln(P(\omega_{j}))
@@ -40,4 +40,5 @@ It can be assumed that all classes share the same covariance matrices $C$. $C_{j
 \end{equation}
 \vspace{-0.05cm}
 \noindent Where $CS_{k}(x)$ is the confidence score of a sample $x$ belonging to class $j$. The normalization operation was included to represent the class confidence score as a percentage of the sum of all class confidence scores, in order to have $CS_{k}(x)$ presented as a more intuitive number for the user.
+The LDA classifier will be used in the control scheme. To obtain smoother control, the class with the highest average likelihood based on features from the previous three segments is chosen as output class. \\
 
