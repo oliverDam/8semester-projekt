@@ -2,18 +2,31 @@
 %\section{User training}
 
 Subjects were set to train their understanding of making distinguishable hand movements, using a user training interface, where feedback corresponding to the assigned group was presented. Prior to training subjects were informed of the importance of their efforts in relation to the experiment with the intent of encouraging a focused participation. \\
-The user training interface contained the following feedback: an illustration of the movement needed to be performed, a horizontal bar visualizing the contraction level and a vertical bar plot visualizing which movement was being recognized by the control system. An illustration of the user training interface is shown in \figref{fig:feedbackGUI}. The only difference between the test and control group was the feedback received in the vertical bar plot. The test group received confidence score feedback (multiple bars) and the control group received label feedback (single bar).
+The user training interface contained the following feedback: an illustration of the movement needed to be performed, a horizontal bar visualizing the contraction level and a vertical bar plot visualizing which movement was being recognized by the control system. The only difference between the test and control group was the feedback received in the vertical bar plot. The test group received confidence score feedback (multiple bars) as seen in \figref{fig:test} and the control group received label feedback (single bar) as seen in \figref{fig:control}.
 
-\begin{figure}[H] 
-	\centering
-	\subfigure[Test group user training interface.]
-	{\includegraphics[width=.42\textwidth]{figures/xBackground/usertraintestGUI}} \\
-	\subfigure[Control group user training interface.]
-	{\includegraphics[width=.42\textwidth]{figures/xBackground/usertraincontrolGUI}}  
-	\caption{Illustration of the user training interface for the test group (a) and the control group (b). The vertical bar plot indicates which movement is being recognized visualized by the images of each movement; a full bar corresponds to 100 \% recognition confidence. The horizontal bar plot indicates contraction level, where a full bar corresponds to the MVC. The two vertical lines in the contraction level bar plot illustrates the contraction level interval the subject must reach. The large picture of a movement on the right of the bar plot indicates which movement needs to be performed. The difference between the feedback the two subject groups receive is the information given in the vertical recognition bar plot. The control group only sees a full bar of the movement the control system recognizes the most, whereas the test groups receives the exact recognition probabilities of all movements.}
-	\label{fig:feedbackGUI}
+%\begin{figure}[H] 
+%	\centering
+%	\subfigure[Test group user training interface.]
+%	{\includegraphics[width=.42\textwidth]{figures/xBackground/usertraintestGUI}} \\
+%	\subfigure[Control group user training interface.]
+%	{\includegraphics[width=.42\textwidth]{figures/xBackground/usertraincontrolGUI}}  
+%	\caption{Illustration of the user training interface for the test group (a) and the control group (b). The vertical bar plot indicates which movement is being recognized visualized by the images of each movement; a full bar corresponds to 100 \% recognition confidence. The horizontal bar plot indicates contraction level, where a full bar corresponds to the MVC. The two vertical lines in the contraction level bar plot illustrates the contraction level interval the subject must reach. The large picture of a movement on the right of the bar plot indicates which movement needs to be performed. The difference between the feedback the two subject groups receive is the information given in the vertical recognition bar plot. The control group only sees a full bar of the movement the control system recognizes the most, whereas the test groups receives the exact recognition probabilities of all movements.}
+%	\label{fig:feedbackGUI}
+%\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=.47\textwidth]{figures/xBackground/usertraintestGUI} \\
+	\caption{Illustration of the user training interface for the test group. The vertical bar plot indicates which movement is being recognized visualized by the images of each movement; a full bar corresponds to 100 \% recognition confidence. The horizontal bar plot indicates contraction level, where a full bar corresponds to the MVC. The two vertical lines in the contraction level bar plot illustrates the contraction level interval the subject must reach. The large picture of a movement on the right of the bar plot indicates which movement needs to be performed. The test group received confidence score feedback by having the possibility of multiple bars being shown.}
+	\label{fig:test}
 \end{figure}
 
+
+
+\begin{figure}[H]
+	\includegraphics[width=.47\textwidth]{figures/xBackground/usertraincontrolGUI} \\
+	\caption{Illustration of the user training interface for the control group. The same interface used for the test group was presented to the control group, except the feedback instead consisted of label feedback. Thereby the control group were only presented with the most certain recognized movement, shown with a single bar.}
+	\label{fig:control}
+\end{figure}
 The test group was shown the classifier confidence scores for multiple classes, which enabled the possibility of having multiple vertical plots shown. Thus, more diverse feedback was presented, which the user could utilize to correct the performed movement. The control group had only the movement with the highest confidence shown, thereby limiting the confidence feedback to only one bar visible at a time. Thus, the control group was not informed on the exact probabilities of which movements the control system recognized.      
 
 
