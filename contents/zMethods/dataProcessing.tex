@@ -2,17 +2,19 @@
 
 \section{Data processing} \label{sec:M:dataProcessing}
 
-The following two sections will cover the implementation of the filter used to prepare the EMG-signal and the extraction of features to represent the signal. Choices behind implemented methods builds on background knowledge acquired in \secref{sec:BG:dataProcessing}. 
+The following two sections will cover the implementation of the filter used to prepare the EMG signal and the extraction of features to represent the signal. Choices behind implemented methods builds on background knowledge acquired in \secref{sec:BG:dataProcessing}. 
 
 \subsection{Filtering of signal} \label{sub:M:filtering} 
 
-As earlier mentioned in \subref{sub:BG:filtering}, due to the MYB specifications limiting the sample rate to 200 Hz and due to movement artefacts in the low-frequency spectrum, it would be resourceful to implement a bandpass filter to avoid a biased signal.
-In the interest of representing the signal with its true properties a second order Butterworth bandpass filter has been implemented with cut-off frequencies at 10 Hz and 90 Hz. A filter steeper than second order was deselected due to a chosen trade-off between filter performance and computational performance, which is of great importance when doing real-time control. In \figref{fig:filt} is the result of the bandpass filter implementation shown. The unfiltered signal shows frequency components in low-frequency spectrum around 0-10 Hz and indicating frequency components at 100 Hz. Both ends of the spectrum have been attenuated limiting impact of artefacts. Furthermore is the presence of the build-in 50 Hz notch filter seen as explained in \subref{sub:BG:MYB}.     
+As earlier mentioned in \subref{sub:BG:filtering}, EMG recordings are sensitive %due to the MYB specifications limiting the sample rate to 200 Hz and due
+to movement artefacts in the low-frequency spectrum, it would be resourceful to implement a high-pass filter to avoid a biased signal.
+In the interest of representing the signal with its true properties a second order Butterworth high-pass filter has been implemented with a cut-off frequency at 10 Hz. A filter steeper than second order was deselected due to a chosen trade-off between filter performance and computational performance, which is of great importance when doing real-time control. In \figref{fig:filt} is the result of the implemented high-pass filtering. The unfiltered signal shows frequency components in low-frequency spectrum around 0-10 Hz.% Both ends of the spectrum have been attenuated limiting impact of artefacts. 
+Furthermore is the presence of the build-in 50 Hz notch filter seen as explained in \subref{sub:BG:MYB}.     
 
 
 \begin{figure}[H]                 
-\includegraphics[width=.8\textwidth]{figures/pMethods/Filt}  
-\caption{Frequency spectrum of a randomly selected EMG-recording showing the difference before an after implementing the bandpass filter. The unfiltered signal shows frequency components in low-frequency spectrum around 0-10 Hz and indicating frequency components at 100 Hz. The filtered signal shows reduction in the signal outside the cut-off frequencies.}
+\includegraphics[width=.8\textwidth]{figures/pMethods/Filt}
+\caption{Frequency spectrum of a randomly selected EMG-recording showing the difference before an after implementing the high-pass filter. The unfiltered signal shows frequency components in low-frequency spectrum around 0-10 Hz. The filtered signal shows reduction in the signal outside the cut-off frequency.}
 \label{fig:filt} 
 \end{figure}
 
