@@ -1,7 +1,7 @@
 \subsection{Proportional Control} \label{sub:M:regression}
 To obtain proportional control linear regression models, regressors, for each movement were made. For this purpose multivariate linear regression was used, as explained in \secref{sec:BG:linearRegressionMethods}. To fit a regressor dependent and independent variables were needed. The independent variables were set as MAV features extracted from the raw EMG data acquired from the data acquisition as explained in \secref{sec:M:dataAcquisition}. To ensure that the regressor did not produce an output during rest, the MAV features extracted from the raw EMG from a resting position were included as independent variables in each regressor. An example of the independent variables used to fit the regressor for the extension movement is seen in \eqref{eq:M:segMatrix}.
-\begin{small}
 
+\begin{small}
 \begin{equation} \label{eq:M:segMatrix}
 AllIntMAV\_Ex=\begin{bmatrix}
 \begin{bmatrix}
