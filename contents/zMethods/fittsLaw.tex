@@ -7,35 +7,33 @@
 %performance metrics are calculated (but are first presented in results)
 
 
-As stated in \secref{sec:BG:validatingPerformance} the theory behind Fitts' Law, this project will utilize a modified Fitts' Law test, incorporating addition performance metrics, consisting of a virtual target reaching test to evaluate the progress of subjects going through the different types of user training. The proposed modified Fitts' Law test utilizes the performance metrics of, throughput, path efficiency, overshoot, stopping distance and completion rate. The following section describes how the Fitts' Law test has been implemented in this project.
+As stated in \secref{sec:BG:validatingPerformance} the theory behind Fitts' Law, this project will utilize a modified Fitts' Law test, consisting of a virtual target reaching test to evaluate the progress of subjects performance after user training. The proposed modified Fitts' Law test utilizes the performance measures: throughput, path efficiency, overshoot, stopping distance and completion rate. The following section describes how the Fitts' Law test has been implemented in this project.
 
-\subsection{Virtual target reaching test} \label{sub:M:targetReachingTest}
+\subsection{Virtual Target Reaching Test} \label{sub:M:targetReachingTest}
 
 The virtual targets reaching test was implemented into the same GUI used for data acquisition and user training, first mentioned in \secref{sec:M:dataAcquisition}. 
 %Different functions have been build into the GUI to enable switching between different usages by the press of a button.
-When enabling the target reaching test in the GUI the subject was met with the interface shown in \figref{fig:fittsLawTask}. Here the subjects controlled the position of the cursor by performing movements shown above, below, and on the sides of the borders of the grid area. Thus, extension of the hand would move the cursor to the right of the grid, and flexion would move the cursor to the left. Similarly, radial and ulnar deviation moved the cursor up and down respectively. This approach was used to improve the intuitiveness of the control where the direction of the cursor relate to the directions subjects will perform hand movements.
+When enabling the target reaching test in the GUI, the subject was met with the interface shown in \figref{fig:fittsLawTask}. Here the subjects controlled the position of the cursor by performing movements shown on at the vertical and horizontal axes. Thus, extension of the hand would move the cursor to the right, and flexion would move the cursor to the left. Similarly, radial and ulnar deviation moved the cursor up and down respectively. This approach was used to improve the intuitiveness of the control as the direction of the cursor imitates the subjects' hand when performing the movements.
 %, when placed as instructed in the protocol, \appref{sec:protocol:experiment} \fxnote{appref virker måske bedre en en secref til protokollen når vi får bygget en ordentlig main med et rigtigt appedix så protokollerne heller ikke står under bibliografien}
-Subjects controlled the size of the cursors red area by opening and closing the hand, where an open hand increases the area and a closed hand decreases the area. By being able to control the cursor on the two dimensional plane on the grid area and being able to control the size of the red cursor area, the test effectively has three dimensions. \\
-Each target was presented by an area with a center and an outer circle. Targets existed in three sizes in order to test opened and closed hand degree of freedom. The target reaching test consisted of reaching a total of 16 targets which each appeared for 15 seconds at different distances from the center of the grid area. The order of appearance was fixed but different for each of the four sessions but the same across subjects, thus individual subjects will experience the targets as appearing in a new order with each session. 
+Subjects controlled the size of the cursors red area by opening and closing the hand, where an open hand increases the area and a closed hand decreases the area. By being able to control the cursor on the two dimensional plane on the grid area and being able to control the size of the red cursor area, the test effectively had three dimensions. \\
+Each target was presented by an area with a center and an outer circle. Targets existed in three sizes, both smaller and larger than the cursor, in order to test the opened and closed hand DOF. Similarly, the cursor changed size after being rest to test this DOF. The target reaching test consisted of reaching a total of 16 targets which each appeared for 15 seconds at different distances from the origin. Thus, the maximum duration of the test was 4 minutes. The order of appearance was fixed but different for each of the four sessions but the same across subjects. Thus, individual subjects would experience the targets as appearing in a new order with each test. 
 
 \begin{figure}[H] 
 	\includegraphics[width=0.7\textwidth]{figures/xBackground/perftestGUI}
-	\caption{The implemented interface for the modified Fitts' Law test. The grid was the area in which the subject must reach targets with the controlled cursor. The cursor is the red circle area with the black dot in the center. Targets were shown as a circle area with an bigger outer circle. Performing the movement corresponding to the axis image would move the cursor in the direction of the image.}
+	\caption{The implemented interface for the modified Fitts' Law test. The grid was the area in which the subject must reach targets with the controlled cursor. The cursor is the red circle area with the black dot in the center. Targets were shown as a circle area with an larger outer circle. Performing the movement corresponding to the axis image would move the cursor in the direction of the image. Opened/closed hand would increase/decrease the size of the cursor.}
 	\label{fig:fittsLawTask}
 \end{figure}
 
-Subjects had to reach the targets inner circle with the cursor dot and expand or decrease the red area of the cursor to reach a size close to that of the target. A moderate size threshold was implemented to make it possible to reach targets, without a 100\% accuracy of control. If a subject successfully reached a target, the cursor would change color from red to green, and if the subject withholds this position for a 1 second dwell the cursor changed to blue, and a bell chime would sound to indicate that the target was reached. The cursor position was reset to the center of the grid area and the color of the cursor would revert back to red. If a target was not reached within 15 seconds the current target would disappear, a new target would be shown and the cursor position would be set to the center of the grid area. The approach of resetting the cursor position after each target was to equalize the path for every subject. 
-
-As mentioned earlier multiple performance metrics were recorded during the target reaching test. One of these measures was throughput which depend on the index of difficulty for the targets, as stated in \secref{sub:BG:fitts}. The ID was calculated for all targets in the 3-dimensional target space shown on \figref{fig:alltargets}. 
+Subjects had to reach the targets inner circle with the cursor dot and expand or decrease the outer circle of the cursor to reach a size close to that of the target. A moderate size threshold was implemented to make it possible to reach targets, without a 100\% accuracy of control. If a subject successfully reached a target, the cursor would change color from red to green, and if the subject dwelled in this position for a 1 second the cursor colour changed to blue, and a bell chime would sound to indicate that the target was reached. The cursor position was reset to the center of the grid area and the color of the cursor would revert back to red. If a target was not reached within 15 seconds the current target would disappear, a new target would be shown and the cursor position would be set to the center of the grid area. The approach of resetting the cursor position after each target was to equalize the path for every subject. \\
+As mentioned earlier multiple performance measures were recorded during the target reaching test. One of these measures was throughput which depend on the index of difficulty for the targets, as stated in \secref{sub:BG:fitts}. The ID was calculated for all targets shown in \figref{fig:alltargets}. 
 
 \begin{figure}[H] 
 	\includegraphics[width=0.7\textwidth]{figures/pMethods/DotsToReach}
-	\caption{The implemented interface for the modified Fitts' Law task were all 16 targets to be reached are shown. Here it is seen that the smaller center circle has the same width in all targets. Furthermore the three different target sizes are shown.}
+	\caption{The implemented interface for the modified Fitts' Law test, where all 16 targets to be reached, are shown. Here it is seen that the smaller center circle has the same width in all targets. Furthermore, the three different target sizes are shown for the outer circle of the targets.}
 	\label{fig:alltargets}
 \end{figure}
 
-
-The configuration of targets in the test resulted in eight combinations of width and distance. The smaller circle has the same width in each target thereby possessing the same area in which the cursor center has to be within. The index of difficulty for the targets used in the modified Fitts' Law test can be seen in \tabref{tab:M:ID}
+The configuration of targets in the test resulted in eight combinations of width and distance. The smaller circle has the same width in each target thereby possessing the same area in which the cursor center has to be within. The index of difficulty for the targets used in the modified Fitts' Law test can be seen in \tabref{tab:P:ID}
 
 \begin{table}[H]
 	\centering
@@ -60,12 +58,11 @@ A trace of the cursor movement throughout the whole test is recorded to decide t
 
 \begin{figure}[H] 
 	\includegraphics[width=0.7\textwidth]{figures/pMethods/trajectory}
-	\caption{The trace of the cursor movement after a target reaching test. This information is not visible or shown to subjects.}
+	\caption{The trace of the cursor movement of an example subject after a target reaching test. This trace was not visible for the subjects.}
 	\label{fig:cursorTrace}
 \end{figure}
-The number of times a target is reached and exited without completing the dwell time, is recorded and used to calculate subjects' overshoot. Similarly to tracking the travelled distance of the cursor inside the grid area, the travelled distance inside of each target is also recorded to calculate the stopping distance. The number or reached targets is recorded. The total amount of time possible to use in completing the target reaching test is: $16 ~targets~*~15s = 240s = 4~min$. 
-
-Following the completion of recording target reaching test data from all subjects the performance metrics introduced in \secref{sub:BG:fitts} are calculated and presented in the Results in \chapref{chap:Results}.
+The number of times a target is reached and exited without completing the dwell time, was recorded and used to calculate subjects' overshoot. Similarly to tracking the travelled distance of the cursor inside the grid area, the travelled distance inside of each target was also recorded to calculate the stopping distance. The number or reached targets were recorded to calculate the completion rate. \\ %The total amount of time possible to use in completing the target reaching test is: $16 ~targets~*~15s = 240s = 4~min$. 
+Following the completion of recording target reaching test data from all subjects the performance measures introduced in \secref{sub:BG:fitts} were calculated and presented in the Results in \chapref{chap:Results}.
 
 
 
