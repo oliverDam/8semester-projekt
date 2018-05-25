@@ -1,0 +1,105 @@
+%appendix
+
+%this is appendix
+\textbf{Features}
+In this section the equations used for calculating the features used in this project.
+
+MAV is a feature that primarily is affected by the force produces when making a contraction. MAV is extracted for each window and calculated for each of the $i^{th}$ channel. The extraction is expressed as:
+
+\begin{equation} \label{eq:MAV}
+MAV_i=\frac{\sum_{n=1}^{ws}|x_i[n]|}{ws}
+\end{equation}
+
+where $ws$ is the window size, the number of raw data points in that exact window. $x_i[n]$ is the $n^{th}$ raw data points from the $i^{th}$ channel.  
+
+The mean MAV across all channels, MMAV, is used to remove dependency of movement intensity. MMAV is calculated by using the MAV of all channels for the current window, and is done as following: 
+
+\begin{equation} \label{eq:MMAV}
+MMAV=\frac{\sum_{i=1}^{8}MAV_i}{8}
+\end{equation}
+
+MMAV can be used to scale the MAV feature creating the SMAV feature. This feature should represent a non-dimensional relationship between channels. SMAV is simply calculated as:
+
+\begin{equation} \label{eq:SMAV}
+SMAV_i=\frac{MAV_i}{MMAV}
+\end{equation}
+
+As each of the eight EMG sensors in the MYB are located around the arm, they acquire signals from a mixture of sources. Also individual sources may affect multiple sensors depending on their size. Due to this a source measured by multiple sensors will effect their acquired signal correlation. An idea is therefore to calculate the correlation coefficient between each channel and its neighboring channel.  
+
+\begin{equation} \label{eq:CC}
+CC_i=\frac{\sum_{n=1}^{ws}X_i[n]X_{i+1}[n]}{ws}
+\end{equation}
+
+$X_i[n]$ is the $n^{th}$ normalized data point from channel $i$. When calculating CC the data from each window is normalized by subtracting its mean value from each raw data point, and afterwards divided by their standard deviation. 
+
+Calculating CC can prove rather demanding in computational power due to the series og multiplication operations. Therefore Donovan et al. \cite{Donovan2017} proposed introducing a mean absolute difference-based feature of lower computational complexity which still characterizes the spatial relationship between channels. The MAD feature is normalized in the same way as CC, making up the MADN feature calculated as: 
+
+\begin{equation} \label{eq:MADN}
+MADN_i=\frac{\sum_{n=1}^{ws}|X_i[n]-X_{i+1}[n]|}{ws}
+\end{equation}
+
+If the normalization of the signal proves too demanding the feature can be calculated on the raw EMG-signal without the normalization. This makes up the MADR feature, calculated as:
+
+\begin{equation} \label{eq:MADR}
+MADR_i=\frac{\sum_{n=1}^{ws}|x_i[n]-x_{i+1}[n]|}{ws}
+\end{equation}
+
+As the SMAV feature the MAD feature can be scaled by MMAV to remove movement intensity dependency. SMADR is calculated for each channel by:
+
+\begin{equation} \label{eq:MMADR}
+SMADR_i=\frac{MADR_i}{MMAV}
+\end{equation}
+
+
+As stated in the beginning some of these features introduce redundancy, subsequently the features of SMAV, CC, MADN and SMADR are the ones used for classification. \cite{Donovan2017}
+
+To further improve the decision foundation of the classifier it was proposed to include the time domain feature of WL calculated by: 
+
+\begin{equation} \label{eq:WL}
+WL_i=\sum_{n=1}^{N-1}|x_{i+1}[n]-x_i[n]|
+\end{equation}
+
+WL is a measure of the signal complexity by calculating the cumulative length for each channel \cite{Phiny2012}.
+
+
+
+
+\textbf{Fitts' Law Measures}
+In this section the equations for the Fitts' Law measures are presented.
+Throughput (TP) which represents the trade-off between speed and accuracy. TP uses the relationship of time taken to reach a certain target in seconds ($MT$) and the index of difficulty (ID). This forms: \cite{Scheme2013,Fitts1954}
+
+\begin{equation} \label{eq:TP}
+TP=\frac{1}{N}\sum_{i=1}^{N} \frac{ID_i}{MT_i} 
+\end{equation}
+
+where $i$ is a specific movement and $N$ is the total number of movements. ID relates to the target distance $D$ and width $W$. The ID for each task, from the origin to a specific target of a certain size is calculated using \cite{Scheme2013,Fitts1954}:
+
+\begin{equation} \label{eq:ID}
+ID=log_2(\frac{D}{W}+1)
+\end{equation}
+
+Path Efficiency (PE) describes the quality of control by making a measure of the straightness of the cursor's path to the target, by making a ratio of the actual path distance versus the optimal path distance. This tests the users ability to continuously control the cursor position. Following the optimal path will result in a PE of 100\%. PE is calculated as follows \cite{Scheme2013, Poulton2013}:       
+
+\begin{equation} \label{eq:PE}
+PE = \frac{Optimal ~ Distance}{Actual ~ Distance}
+\end{equation}		 
+
+Overshoot (OS) is the number of times the cursor enters and then leaves the target before the dwell time inside the target is reached, across all target in the task, divided by the total number of targets. OS tests the users ability to control the velocity of the cursor accurately. A perfect OS-score of zero is reached if the cursor dwells within the target boundaries on the first try for all targets, and is calculated as the following \cite{Scheme2013, Poulton2013}:
+
+\begin{equation} \label{eq:OS}
+OS = \frac{Total ~ Number ~ of ~ Overshoots}{Total ~ Number ~ of ~ Targets}
+\end{equation}
+
+Stopping Distance (SD) describes the users ability to rest and thereby perform no movement. The SD measure is the distance moved during the dwell time across all targets, and is given as \cite{Scheme2013}:
+
+\begin{equation} \label{eq:SD}
+SD = \sum_{i=1}^{N} (Distance ~ Inside ~ Target)_i
+\end{equation}
+
+where $i$ is a reached target and $N$ is the total number of reached targets.
+
+Completion Rate (CR) describes the percentage of targets reached within the total allowed time. This gives a general idea of the user's performance, and is calculated as \cite{Scheme2013,Simon2011}: 
+
+\begin{equation} \label{eq:CR}
+CR = \frac{Number ~ of ~ Reached ~ Targets}{Total ~ Number ~ of ~ Targets}
+\end{equation}
