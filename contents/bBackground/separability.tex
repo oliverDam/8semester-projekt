@@ -1,20 +1,20 @@
-\section{Cluster dispersion and separability} \label{sec:BG:dataSeparability}
-The EMG-signal for each movement class acquired from the subjects forms clusters of multidimensional data points. The lower the dispersion of the individual movement class clusters is, the more distinguishable the movements are, and the classifier will recognize the movement classes with higher accuracy. Additionally, a higher distance between cluster centroids will facilitate a higher classification accuracy further. This can be used to evaluate the users' ability to improve in performing distinguishable movements between sessions. This section describes how to calculate the cluster dispersion and separability of clusters. \\
+\section{Cluster Dispersion and Separability} \label{sec:BG:dataSeparability}
+The EMG signal for each movement class acquired from the subjects forms clusters of multidimensional data points. The lower the dispersion of the individual movement class clusters is, the more distinguishable the movements are, and the classifier will recognize the movement classes with higher accuracy. Additionally, a higher distance between cluster centroids will facilitate a higher classification accuracy further. This can be used to evaluate the users' ability to improve in performing distinguishable movements between sessions. This section describes how to calculate the cluster dispersion and separability of clusters. \\
 
-\subsection{Distance measure} \label{sub:BG:distanceMeasure}
+\subsection{Distance Measure} \label{sub:BG:distanceMeasure}
 To calculate cluster dispersion, the centroid of multidimensional clusters must be calculated as in:
 
 \begin{equation} \label{eq:centroid}
-C = \Bigg[ \frac{\sum\limits_{n=1}^{N}x_{n},y_{n},~...~k_{n}}{N} \Bigg]
+C = \frac{\sum\limits_{n=1}^{N}a_{n},b_{n},~...~k_{n}}{N}
 \end{equation}
 
-Where $C$ is the centroid, $n$ is the number of data point in a dimension, $N$ is the total number of data points in a dimension and $k$ is the number of dimensions. To calculate cluster dispersion, the Euclidean distance (ED) from data point $p$ to the corresponding cluster $q$ is computed: %The ED is the length of the a line segment connecting points, in this case in form of data point $p$ and cluster centroid $q$, and is calculated as:
+Where $C$ is the centroid, $n$ is the number of data point in a dimension, $N$ is the total number of data points in a dimension and $k$ is the number of dimensions. To calculate cluster dispersion, the Euclidean distance (ED) from data point $p$ to the corresponding cluster $q$ can be used, and is computed as: %The ED is the length of the a line segment connecting points, in this case in form of data point $p$ and cluster centroid $q$, and is calculated as:
 
 \begin{equation} \label{eq:euclidiandistance}
 ED(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2~+~...~+ (p_k-q_k)^2}
 \end{equation} 
 
-This procedure is performed for all data points in a cluster, from which the average ED is calculated to obtain the dispersion of a cluster. To get a general impression of the cluster dispersion of all classes, the average of all cluster dispersions are calculated.\\
+Where $p_k$ and $q_k$ are the coordinates of the vectors $p$ and $q$ respectively. This procedure is performed for all data points in a cluster, from which the average ED is calculated to obtain the dispersion of a cluster. To get a general impression of the cluster dispersion of all classes, the average of all cluster dispersions are calculated.\\
 To calculate the cluster separability, the ED between cluster centroids is calculated. The average of the distance between all clusters are then calculated to get a general impression of the cluster separability.   
 
 %Besides evaluating the user performance in real-time, it would be beneficial to evaluate the clustering of feature values used to fit the classifier as it is this separability of clusters that determines the classifier accuracy. This will provide information on how the clusters between classes separates and how the feature values within clusters bundle. Hereby it can be used to see if the users get better at performing more separable movements. Thus it can be evaluated between sessions if the clusters are more distinguished and thereby easier for the classifier to discriminate between. 

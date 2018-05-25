@@ -1,12 +1,12 @@
 \section{Building the Control System}
 
-Following the data acquisition and processing, the training data was used for movement classification. The features extracted for each of the seven movements were used for building the classifier. In \subref{sub:M:classification} the implementation of the classification and an explanation of its output will be covered. Furthermore to be able to obtain proportional control a regression based models were made. The implementation of proportional control will be explained in \subref{sub:M:regression}. An explanation of how the classifier and regression models were used in the user training and in the performance test can be found in \secref{sec:M:usertraining} and \secref{sec:M:fittsLaw} respectively.  
+Following the data acquisition and processing, the training data was used for movement classification. The features extracted for each of the six movements and rest were used for building the classifier. In \subref{sub:M:classification} the implementation of the classification and an explanation of its output will be covered. Furthermore to be able to obtain proportional control a regression based models were made. The implementation of proportional control will be explained in \subref{sub:M:regression}. An explanation of how the classifier and regression models were used in the user training and in the performance test can be found in \secref{sec:M:usertraining} and \secref{sec:M:fittsLaw} respectively.  
 
 
 \subsection{Movement Classification} \label{sub:M:classification}
 
-For classifying movements Linear Discriminant Analysis was used as presented in \secref{sec:BG:classification}. The classifier was fitted with the previously acquired training data in order to build the control system.  
-The acquired training data was assembled into matrices for each of the seven movements with one of the five features, containing the feature values for each of the eight channels. An example of one of these matrices can be seen in \eqref{eq:CCMatrix}. This matrix contains $n$ feature values for the feature CC for all three intensities of extension across all eight channels.  
+For classifying movements, LDA was used, as presented in \secref{sec:BG:classification}. The classifier was fitted with the previously acquired training data in order to build the control system.  
+The acquired training data was assembled into matrices for each of the six movements and rest with one of the five features, containing the feature values for each of the eight channels. An example of one of these matrices can be seen in \eqref{eq:CCMatrix}. This matrix contains $n$ feature values for the feature CC for all three intensities of extension across all eight channels.  
 
 \begin{equation} \label{eq:CCMatrix}
 AllIntCC\_Ex=\begin{bmatrix} 
@@ -41,9 +41,9 @@ TM=\begin{bmatrix}
 \end{equation}
 \end{footnotesize}
 
-The classifier was trained by fitting the matrix presented in \eqref{eq:AllMatrix} with labels for each of the movements, by using the fitcdiscr function in MATLAB. %The fitcdiscr function computes the mean of data points for each class. The sample covariance is then calculated by subtracting the mean of each class from the observed data of the class and taking the covariance matrix of the result.
-The fitcdiscr function makes a LDA classifier model as described in \secref{sub:BG:LDA}.
-The classifier thereby formed seven classes, one for each of the movements, with linear decision boundaries separating them. For calculating the real-time use of classification outcome and confidence scores in user training and performance test as intended, the predict function in MATLAB was used. The function was continuously evaluating each feature value to the different movement classes in the five dimensional feature space. Thus, the feature values were assigned to the movement class they were most likely to belong to based on the training data. The predict function also calculated the probability membership for the feature values to all classes giving an idea of how confident the classifier was on deciding a certain movement class and thereby indicating the correctness of the movement performed. \\ 
+The classifier was trained by fitting the matrix presented in \eqref{eq:AllMatrix} with labels for each of the movements, by using the \textit{fitcdiscr} function in MATLAB. %The fitcdiscr function computes the mean of data points for each class. The sample covariance is then calculated by subtracting the mean of each class from the observed data of the class and taking the covariance matrix of the result.
+The \textit{fitcdiscr} function makes a LDA classifier model as described in \secref{sub:BG:LDA}.
+The classifier thereby formed seven classes, one for each of the movements, with linear decision boundaries separating them. For calculating the real-time use of classification outcome and confidence scores in user training and performance test as intended, the \textit{predict} function in MATLAB was used. The function was continuously evaluating each feature value to the different movement classes in the five dimensional feature space. Thus, the feature values were assigned to the movement class they were most likely to belong to based on the training data. The \textit{predict} function also calculated the probability membership for the feature values to all classes giving an idea of how confident the classifier was on deciding a certain movement class and thereby indicating the correctness of the movement performed. \\ 
 The classifier was only used to decide upon which movement was performed, thus not used in performing proportional control. For this purpose linear regression models were used. 
 
 
