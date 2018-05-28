@@ -1,5 +1,5 @@
 %\subsection{Cluster dispersion and separability}
-The EMG signal for each movement class acquired from the subjects forms clusters of multidimensional data points. The lower the dispersion of the individual movement class clusters is, the more distinguishable the movements are, and the classifier will recognize the movement classes with higher accuracy. Additionally, a higher distance between cluster centroids will facilitate a higher classification accuracy further. \\%This section describes how to calculate the cluster dispersion and separability of clusters. \\
+The EMG signal for each movement class acquired from the subjects forms clusters of multidimensional data points. The lower the dispersion of the individual movement class clusters is, the more distinguishable the movements are, and the classifier will recognize the movement classes with higher accuracy. Additionally, a higher distance between cluster centroids will facilitate a higher classification accuracy as well. The dispersion of the class clusters and the distance between cluster centroids will be calculated as an outcome measure of the data used to train the classifier. \\%This section describes how to calculate the cluster dispersion and separability of clusters. \\
 To calculate cluster dispersion, the centroid of multidimensional clusters must be calculated as in:
 \vspace{-0.5cm}
 
@@ -8,7 +8,7 @@ C = \frac{\sum\limits_{n=1}^{N}a_{n},b_{n},~...~k_{n}}{N}
 \end{equation}
 \vspace{-0.5cm}
 
-Where $C$ is the centroid, $n$ is the number of data points in a dimension, $N$ is the total number of data points in a dimension and $k$ is the number of dimensions. To calculate cluster dispersion, the Euclidean distance (ED) from data point $p$ to the corresponding cluster $q$ is computed: %The ED is the length of the a line segment connecting points, in this case in form of data point $p$ and cluster centroid $q$, and is calculated as:
+Where $C$ is the centroid, $n$ is the current data point in a dimension, $N$ is the total number of data points in a dimension and $k$ is the number of dimensions. To calculate cluster dispersion, the Euclidean distance (ED) from data point $p$ to the corresponding cluster $q$ can be computed: %The ED is the length of the a line segment connecting points, in this case in form of data point $p$ and cluster centroid $q$, and is calculated as:
 \vspace{-0.5cm}
 
 \begin{equation} \label{eq:euclidiandistance}
@@ -17,6 +17,6 @@ ED(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2~+~...~+ (p_k-q_k)^2}
 \vspace{-0.5cm}
 
 Where $p_k$ and $q_k$ are the coordinates of vectors $p$ and $q$ respectively. This procedure is performed for all data points in a cluster, from which the average is calculated to obtain a general impression of the cluster dispersion.\\
-To calculate the cluster separability, the ED between cluster centroids is calculated.  
+To calculate the cluster separability, the ED between cluster centroids is calculated as in \eqref{eq:euclidiandistance}.  
 %When calculating the distance from feature values in a cluster to their corresponding centroid the ED is computed likewise. To get a general impression of the distance from the feature values constituting the cluster to the centroid of the cluster the average of the distances is calculated. 
 

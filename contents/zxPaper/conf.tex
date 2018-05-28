@@ -14,7 +14,7 @@ The decision rule for LDA classification is based on deciding the class with the
 	g_{j}(x) = P(x|\omega_{j})P(\omega_{j})
 \end{equation} 
 \vspace{-0.02cm}
-\noindent An assumption of LDA is that each class belongs to a Gaussian distribution. Thus, the class conditional probability can be written as the multivariate normal distribution:
+\noindent Where $g_{j}(x)$ is a decision boundary. An assumption of LDA is that each class belongs to a Gaussian distribution. Thus, the class conditional probability can be written as the multivariate normal distribution:
 \vspace{-0.05cm}
 \begin{equation}
 P(x|\omega_{j}) = \frac{1}{|\varSigma_{j}|^{1/2}}(\frac{1}{\sqrt{2\pi}})^{d} ~~e^{-1/2} (x-\mu_{j})' ~\varSigma^{-1}_{j} (x-\mu_{j})

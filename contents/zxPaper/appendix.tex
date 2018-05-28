@@ -23,7 +23,7 @@ MMAV can be used to scale the MAV feature creating the SMAV feature. This featur
 SMAV_i=\frac{MAV_i}{MMAV}
 \end{equation}
 
-As each of the eight EMG sensors in the MYB are located around the arm, they acquire signals from a mixture of sources. Also individual sources may affect multiple sensors depending on their size. Due to this a source measured by multiple sensors will effect their acquired signal correlation. An idea is therefore to calculate the correlation coefficient between each channel and its neighboring channel.  
+As each of the eight EMG sensors in the MYB are located around the arm, they acquire signals from a mixture of sources. Also individual sources may affect multiple sensors depending on their size. Due to this a source measured by multiple sensors will effect their acquired signal correlation. An idea is therefore to calculate the correlation coefficient between each channel and its neighbouring channel.  
 
 \begin{equation} \label{eq:CC}
 CC_i=\frac{\sum\limits_{n=1}^{ws}X_i[n]X_{i+1}[n]}{ws}
@@ -37,7 +37,7 @@ Calculating CC can prove rather demanding in computational power due to the seri
 MADN_i=\frac{\sum\limits_{n=1}^{ws}|X_i[n]-X_{i+1}[n]|}{ws}
 \end{equation}
 
-If the normalization of the signal proves too demanding the feature can be calculated on the raw EMG-signal without the normalization. This makes up the MADR feature, calculated as:
+If the normalization of the signal proves too demanding the feature can be calculated on the raw EMG signal without the normalization. This makes up the MADR feature, calculated as:
 
 \begin{equation} \label{eq:MADR}
 MADR_i=\frac{\sum\limits_{n=1}^{ws}|x_i[n]-x_{i+1}[n]|}{ws}
