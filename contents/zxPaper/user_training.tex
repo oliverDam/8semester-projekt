@@ -19,14 +19,16 @@ The test group was shown the classifier confidence scores for multiple classes, 
 
 
 The intent of user training was to train the subject in being more aware of how to perform a movement in a way the classifier would recognize as the movement the user actually performed. Basically, the training should motivate the subjects to modulate their contractions to maximize the classifier confidence. The subjects should perform contractions such that the probability bar for the target class was maximized while the probability bars for the other classes were minimized. To motivate the subject during user training a simple task was implemented in the interface. \\
-The subject had to perform the instructed movement and achieve a minimum of 75 \% confidence for the test group and the correct class for the control group, whilst also managing to perform the movement within the contraction level interval indicated by the vertical boundaries in the horizontal bar plot. Once these requirements were met and withheld for one second, a sound was played indicating task completion. The subjects had to return to the rest class and then repeat the movement. A task completion was referred to as a repetition and was saved as a user training outcome measure. The goal was to manage as many repetitions as possible within 30 seconds, then a 10 second break was issued before moving to the next movement. \\
+The subject had to perform the instructed movement and achieve a minimum of 75 \% confidence for the test group and the correct class for the control group, whilst also managing to perform the movement within the contraction level interval indicated by the vertical boundaries in the horizontal bar plot. Once these requirements were met and withheld for one second, a sound was played indicating task completion. The subjects had to return to the rest class and then repeat the movement. A task completion was referred to as a repetition and was saved as a user training outcome measure. The goal was to manage as many repetitions as possible within 30 seconds, then a 10 second break was issued before moving to the next movement.
+\vspace{-0.2cm}
 \begin{figure}[H]
-	\includegraphics[width=.47\textwidth]{figures/xBackground/usertraintestGUI} \\
+	\includegraphics[width=.47\textwidth]{figures/xBackground/usertraintestGUI}
 	\caption{Illustration of the user training interface for the test group. The vertical bar plot indicates the recognized movements, visualized by the images of each movement; a full bar corresponds to 100 \% recognition confidence. The horizontal bar plot indicates the contraction level, where a full bar corresponds to the MVC. The two vertical lines in the contraction level bar plot illustrates the contraction level interval the subject must reach. The large picture of a movement on the right of the bar plot indicates which movement needs to be performed. The test group received confidence score feedback by having the possibility of multiple bars being shown.}
 	\label{fig:test}
-\end{figure}    
+\end{figure}
+\vspace{-0.5cm}
 \begin{figure}[H]
-	\includegraphics[width=.47\textwidth]{figures/xBackground/usertraincontrolGUI} \\
+	\includegraphics[width=.47\textwidth]{figures/xBackground/usertraincontrolGUI}
 	\caption{Illustration of the user training interface for the control group. The same interface used for the test group was presented to the control group, except that the feedback consisted of label feedback instead. Thereby, the control group was only presented with the most certain recognized movement, shown with a single bar.}
 	\label{fig:control}
 \end{figure}  
