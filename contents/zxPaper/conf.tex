@@ -26,14 +26,14 @@ It can be assumed that all classes share the same covariance matrices $\varSigma
 \begin{equation} 
 	g_{j}^{*}(x) = \mu_{j}\varSigma^{-1}x' - \frac{1}{2}\mu_{j}\varSigma^{-1}\mu'_{j} - ln(P(\omega_{j}))
 \end{equation}
-\vspace{-0.01cm}
+%\vspace{-0.01cm}
 \noindent Which can be written as the linear discriminant classifier:
-\vspace{-0.05cm}
+%\vspace{-1cm}
 \begin{equation} \label{eq:ldclassifier}
 	g_{j}^{*}(x) = weight_{j}\cdot x' + bias_{j}
 \end{equation}
-\vspace{-0.1cm}
-\noindent The likelihoods obtained from \eqref{eq:ldclassifier} can be used to calculate the confidence score of a sample belonging to a class $j$. The natural logarithmic operation used to derive $g_{j}^{*}(x)$ transformed the function to the log domain. To calculate the confidence scores the function must be transformed back to the linear domain. Additionally, the class $j$ likelihood must be normalized regarding the sum of all class likelihoods, in order to be a value between 0 and 1, and results in the following calculation of confidence score:
+%\vspace{-1cm}
+The likelihoods obtained from \eqref{eq:ldclassifier} can be used to calculate the confidence score of a sample belonging to a class $j$. The natural logarithmic operation used to derive $g_{j}^{*}(x)$ transformed the function to the log domain. To calculate the confidence scores the function must be transformed back to the linear domain. Additionally, the class $j$ likelihood must be normalized regarding the sum of all class likelihoods, in order to be a value between 0 and 1, and results in the following calculation of confidence score:
 \vspace{-0.05cm}
 \begin{equation}
 	CS_{k}(x) = \frac{e^{g^{*}_{j}(x)}}{\sum\limits^{J}_{j=1}~e^{g^{*}_{j}(x)}}
